@@ -6,11 +6,11 @@ const cors = require("cors");
 
 const app = express();
 
-// mongoose.set("strictQuery", true);
-// mongoose.connect("");
-// var db = mongoose.connection;
-// db.on("open", () => console.log("Connected to DB"));
-// db.on("error", () => console.log("Error occurred"));
+mongoose.set("strictQuery", true);
+mongoose.connect("mongodb+srv://jayp_mishra:1234mish@cluster0.7eeb128.mongodb.net/");
+var db = mongoose.connection;
+db.on("open", () => console.log("Connected to DB"));
+db.on("error", () => console.log("Error occurred"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));

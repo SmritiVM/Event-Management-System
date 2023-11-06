@@ -75,9 +75,10 @@
     padding-left: 20px;
     margin-top: 9%;
     letter-spacing: 2px;
+    margin-bottom: 400px;
 }
 
-.content .cn{
+/* .content .cn{
     width: 160px;
     height: 40px;
     background: #ff7200;
@@ -89,7 +90,7 @@
     cursor: pointer;
     transition: .4s ease;
     
-}
+} */
 
 .content .cn a{
     text-decoration: none;

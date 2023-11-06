@@ -1,0 +1,36 @@
+.footer{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    background-color: rgb(10,4,22);
+    bottom: 0 !important;
+    padding-top: 10px !important;
+    padding-bottom: 8px !important;
+    
+}
+
+.footer-copyright{
+    text-align: center !important;
+  }
+  
+  .footer-body{
+    margin-left: 70vw;
+    text-align: center !important;
+    padding: 10px;
+  }
+  
+  
+  .footer h4 {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.61) !important;
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-underline-offset: 0;
+  }
+
+  .footer-icons{
+    color: aliceblue;
+    padding-left: 5px;
+  }

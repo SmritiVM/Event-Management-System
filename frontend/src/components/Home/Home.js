@@ -6,8 +6,6 @@ export default function Home(){
         <div class="content">
             <h1>Event managment System</h1>
             
-               <button class="cn"><a href="#">Register</a></button>
-
                 <div class="form">
                     <h2>Login</h2>
                     <input type="email" name="email" placeholder="Enter Email Here"/>
@@ -23,6 +21,7 @@ export default function Home(){
                     </div>
 
                 </div>
+               
         </div>
 
 

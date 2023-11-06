@@ -1,5 +1,6 @@
 
 .navbar{
+    overflow: hidden;
     width: 1200px;
     height: 75px;
     margin: auto;
@@ -51,3 +52,56 @@ ul li a{
 ul li a:hover{
     color: #ff7200;
 }
+
+.usericon {
+    margin-left: 500px;
+    margin-top: 25px;
+    scale: 2;
+    padding-right: 10px;
+
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;      
+}
+
+.dropdown .dropbtn {
+    font-size: 14px;
+    border: none;
+    outline: none;
+    color: white;
+    padding-bottom: 10px;
+    background-color: inherit;
+    font-family: Arial; 
+    font-weight: bold;
+  }
+
+.dropdown-content {
+    margin-left: 500px;
+    display: none;
+    position: absolute;
+    background-color: #292626;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content a:hover {
+    color: #ff7200;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }

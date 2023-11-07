@@ -6,13 +6,6 @@ import {BiSolidUserCircle} from "react-icons/bi";
 import "./Navbar.css";
 
 export default function Navbar(props){
-    const [options, setOptions] = useState(
-        <ul>
-            <li><Link to = "#">Home</Link></li>
-            <li><Link to = "#">About</Link></li>
-            <li><Link to = "#">CONTACT US</Link></li>
-        </ul>
-    );
     const [user, setUser] = useState();
 
     useEffect(() => {

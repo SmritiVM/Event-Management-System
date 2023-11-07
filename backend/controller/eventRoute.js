@@ -11,4 +11,15 @@ eventRoute.get("/", (req,res) => {
             res.json(data);
     })
 })
+
+eventRoute.route("/check-user/:uname")
+.get((req, res) => {
+    userSchema.findOne({username: req.params.uname}, (err,data) => {
+        if(err)
+            return err;
+        else
+            res.json(data);
+
+    })
+})
 module.exports = eventRoute;

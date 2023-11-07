@@ -1,19 +1,47 @@
 import { useState } from "react";
-// import Axios from "axios";
+import Axios from "axios";
 
 export default function Login(props){
-
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
 
 
     const handleClick = () => {
-        // Axios.get("http://localhost:4000/eventRoute")
-        // .then((res) => {
-        //     if(res.status === 200)
-        // })
-        localStorage.setItem("loginStatus", true);
-        localStorage.setItem("user", name);
+        if (!password){
+            alert("Password cannot be empty");
+        }
+
+        if (name === "admin" && password === "123"){
+            localStorage.setItem("loginStatus", true);
+            localStorage.setItem("user", name);
+            alert("Welcome admin");
+        }
+
+        else{
+        Axios.get("http://localhost:4000/eventRoute/check-user/" + name)
+        .then((res) => {
+            if(res.status === 200)
+            {   
+                if(res.data != null)
+                {
+                    if(res.data.password === password){
+                        localStorage.setItem("loginStatus", true);
+                        localStorage.setItem("user", name);
+                    
+                    }
+                    else
+                        alert("Incorrect username or password");
+                    
+                }
+                else
+                    alert("Incorrect username or password");     
+            }
+            else
+                Promise.reject();
+        })
+        .catch((err) => alert(err));
+    
+        }
     }
     
     return(

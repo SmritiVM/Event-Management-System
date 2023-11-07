@@ -4,7 +4,7 @@ import Login from "../Login/Login";
 import './Home.css';
 
 export default function Home(props){  
-    const [isLoggedIn, setLoggedIn] = useState();
+    const [isLoggedIn, setLoggedIn] = useState("false");
 
     useEffect(() => {
         setInterval(() => {
@@ -13,24 +13,31 @@ export default function Home(props){
         }, [])
     }, 5000)
 
-    if (isLoggedIn === "false"){
-        return(
-            <div class="content">
-                <h1>Event managment System</h1>
-                <Login/>
-            </div>
-        )
+    // if (isLoggedIn === "false"){
+    //     return(
+    //         <div class="content">
+    //             <h1>Event managment System</h1>
+    //             <Login/>
+    //         </div>
+    //     )
 
-    }
+    // }
 
-    else{
-        return(
-            <div class = "content">
-                <h1>Event managment system</h1>
-            </div>
+    // else{
+    //     return(
+    //         <div class = "content">
+    //             <h1>Event managment system</h1>
+    //         </div>
             
-        )
-    }
+    //     )
+    // }
+
+    return(
+                 <div class="content">
+                     <h1>Event managment System</h1>
+                     <Login/>
+                 </div>
+             )
 
     
 }

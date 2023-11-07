@@ -3,7 +3,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from "./components/Footer/Footer";
 import Home from './components/Home/Home';
-
+import Register from "./components/Login/Register";
 
 import './App.css';
 
@@ -15,6 +15,7 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path = "/" element = {<Home/>}/>
+          <Route path = "/register" element = {<Register/>}/>
         </Routes>
         <Footer/>
       </HashRouter>

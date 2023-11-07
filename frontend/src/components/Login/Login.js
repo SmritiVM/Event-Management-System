@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import Axios from "axios";
 
 export default function Login(props){
 
@@ -7,6 +8,10 @@ export default function Login(props){
 
 
     const handleClick = () => {
+        // Axios.get("http://localhost:4000/eventRoute")
+        // .then((res) => {
+        //     if(res.status === 200)
+        // })
         localStorage.setItem("loginStatus", true);
         localStorage.setItem("user", name);
     }

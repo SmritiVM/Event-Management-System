@@ -4,16 +4,17 @@ import Login from "../Login/Login";
 import './Home.css';
 
 export default function Home(props){  
-    const [isLoggedIn, setLoggedIn] = useState();
+    const [isLoggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
         setInterval(() => {
             const loginStatus = localStorage.getItem("loginStatus");
+            console.log(loginStatus);
             setLoggedIn(loginStatus);
         }, [])
     }, 5000)
 
-    if (isLoggedIn === "false"){
+    if (!isLoggedIn || isLoggedIn === "false"){
         return(
             <div class="content">
                 <h1>Event managment System</h1>

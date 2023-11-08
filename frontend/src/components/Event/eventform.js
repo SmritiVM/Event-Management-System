@@ -1,13 +1,14 @@
+import Axios from 'axios';
 import React, { useState } from 'react';
 
 export default function EventRegistrationForm () {
   const [formData, setFormData] = useState({
-    eventName: '',
-    eventTime: '',
-    eventDate: '',
-    eventPlace: '',
+    name: '',
+    time: '',
+    date: '',
+    place: '',
     description: '',
-    clubName: '',
+    club: '',
     registrationFee: '',
     slots: '',
   });
@@ -19,8 +20,15 @@ export default function EventRegistrationForm () {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // can handle sending data to a server.
-    console.log(formData);
+    Axios.post("http://localhost:4000/eventRoute/create-event", formData)
+    .then((res) => {
+      if(res.status === 200)
+        alert("Record added successfully");
+      else
+        Promise.reject();
+    })
+    .catch((err) => alert(err));
+    // console.log(formData);
   };
 
   return (
@@ -28,45 +36,45 @@ export default function EventRegistrationForm () {
       <h1>Event Registration Form</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="eventName">Event Name:</label>
+          <label htmlFor="name">Event Name:</label>
           <input
             type="text"
-            id="eventName"
-            name="eventName"
-            value={formData.eventName}
+            id="name"
+            name="name"
+            value={formData.name}
             onChange={handleChange}
             required
           />
         </div>
         <div>
-          <label htmlFor="eventTime">Event Time:</label>
+          <label htmlFor="time">Event Time:</label>
           <input
             type="text"
-            id="eventTime"
-            name="eventTime"
-            value={formData.eventTime}
+            id="time"
+            name="time"
+            value={formData.time}
             onChange={handleChange}
             required
           />
         </div>
         <div>
-          <label htmlFor="eventDate">Event Date:</label>
+          <label htmlFor="date">Event Date:</label>
           <input
             type="date"
-            id="eventDate"
-            name="eventDate"
-            value={formData.eventDate}
+            id="date"
+            name="date"
+            value={formData.date}
             onChange={handleChange}
             required
           />
         </div>
         <div>
-          <label htmlFor="eventPlace">Event Place:</label>
+          <label htmlFor="place">Event Place:</label>
           <input
             type="text"
-            id="eventPlace"
-            name="eventPlace"
-            value={formData.eventPlace}
+            id="place"
+            name="place"
+            value={formData.place}
             onChange={handleChange}
             required
           />
@@ -82,12 +90,12 @@ export default function EventRegistrationForm () {
           />
         </div>
         <div>
-          <label htmlFor="clubName">Name of the Club:</label>
+          <label htmlFor="club">Name of the Club:</label>
           <input
             type="text"
-            id="clubName"
-            name="clubName"
-            value={formData.clubName}
+            id="club"
+            name="club"
+            value={formData.club}
             onChange={handleChange}
             required
           />
@@ -95,7 +103,7 @@ export default function EventRegistrationForm () {
         <div>
           <label htmlFor="registrationFee">Registration Fee:</label>
           <input
-            type="text"
+            type="number"
             id="registrationFee"
             name="registrationFee"
             value={formData.registrationFee}

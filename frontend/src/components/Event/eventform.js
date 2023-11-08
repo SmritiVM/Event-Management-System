@@ -10,7 +10,6 @@ export default function EventRegistrationForm () {
     place: '',
     description: '',
     club: '',
-    registrationFee: '',
     slots: '',
   });
 
@@ -108,17 +107,6 @@ export default function EventRegistrationForm () {
             id="club"
             name="club"
             value={formData.club}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="registrationFee">Registration Fee:</label>
-          <input
-            type="number"
-            id="registrationFee"
-            name="registrationFee"
-            value={formData.registrationFee}
             onChange={handleChange}
             required
           />

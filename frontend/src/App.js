@@ -3,8 +3,8 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Footer from "./components/Footer/Footer";
 import Home from './components/Home/Home';
-// import Register from "./components/Login/Register";
 import RegistrationForm from './components/Login/Register';
+import EventRegistrationForm from './components/Event/eventform';
 
 import './App.css';
 
@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path = "/" element = {<Home/>}/>
           <Route path = "/register" element = {<RegistrationForm/>}/>
-        
+          <Route path = "/create-event" element = {<EventRegistrationForm/>}/>
         </Routes>
         <Footer/>
       </HashRouter>

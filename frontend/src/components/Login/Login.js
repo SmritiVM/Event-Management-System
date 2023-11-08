@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Axios from "axios";
+import { Link } from "react-router-dom";
 
-export default function Login(props){
+export default function Login(){
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
 
@@ -53,7 +54,7 @@ export default function Login(props){
                     <button class="btnn" onClick = {handleClick} type = "submit"><a href="#">Login</a></button>
 
                     <p class="link">Don't have an account?<br/>
-                    <a href="#">Sign up </a> here</p>
+                    <Link to ="/register">Sign up </Link> here</p>
                     
 
         </div>

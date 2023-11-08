@@ -31,7 +31,7 @@ export default function Navbar(props){
                     <li><Link to = "/">Home</Link></li>
                     <li><Link to = "#">About</Link></li>
                     <li><Link to = "#">View Events</Link></li>
-                    <li><Link to = "#">Create Event</Link></li>
+                    <li><Link to = "/create-event">Create Event</Link></li>
                     <li><Link to = "#">View Users</Link></li>
                 </ul>
                 </div>

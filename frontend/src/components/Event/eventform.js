@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 export default function EventRegistrationForm () {
   const [formData, setFormData] = useState({
     name: '',
-    time: '',
+    startTime: '',
+    endTime: '',
     date: '',
     place: '',
     description: '',
@@ -47,12 +48,23 @@ export default function EventRegistrationForm () {
           />
         </div>
         <div>
-          <label htmlFor="time">Event Time:</label>
+          <label htmlFor="startTime">Event Start Time:</label>
           <input
-            type="text"
-            id="time"
-            name="time"
-            value={formData.time}
+            type="time"
+            id="startTime"
+            name="startTime"
+            value={formData.startTime}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div>
+          <label htmlFor="endTime">Event End Time:</label>
+          <input
+            type="time"
+            id="endTime"
+            name="endTime"
+            value={formData.endTime}
             onChange={handleChange}
             required
           />

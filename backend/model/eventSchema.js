@@ -1,9 +1,10 @@
-const { Int32 } = require("mongodb");
+const { Int32, Timestamp } = require("mongodb");
 const mongoose = require("mongoose");
 const eventSchema = new mongoose.Schema({
     "name": {type:String, unique:true},
     "date": {type:Date},
-    "time": {type:String},
+    "startTime": {type: String},
+    "endTime": {type:String},
     "place": {type:String},
     "club": {type:String},
     "description": {type:String},

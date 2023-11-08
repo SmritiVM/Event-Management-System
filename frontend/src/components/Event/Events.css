@@ -1,0 +1,33 @@
+.eventCard {
+    /* background-color: rgb(108, 117, 125); */
+    background-image: -moz-linear-gradient( black, gray);
+    /* border: 2px solid rgb(33, 37, 41); */
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    color: white;
+}
+
+
+.eventCard:hover {
+    transform: scale(1.05); /* Scale up the card on hover */
+}
+
+.cardButton{
+    margin: 2px;
+    padding: 10px;
+    font-size: 1.15vw;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold; 
+
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px;
+    justify-content: center;
+}
+

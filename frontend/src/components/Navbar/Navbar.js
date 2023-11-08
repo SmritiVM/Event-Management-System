@@ -61,7 +61,7 @@ export default function Navbar(props){
                     <ul>
                     <li><Link to = "/">Home</Link></li>
                     <li><Link to = "#">About</Link></li>
-                    <li><Link to = "#">Events</Link></li>
+                    <li><Link to = "/view-event">Events</Link></li>
                 </ul>
                 </div>
                 <div class = "dropdown">

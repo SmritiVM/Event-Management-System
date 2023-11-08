@@ -9,6 +9,7 @@ export default function Login(props){
     const handleClick = () => {
         if (!password){
             alert("Password cannot be empty");
+            return;
         }
 
         if (name === "admin" && password === "123"){

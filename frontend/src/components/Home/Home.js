@@ -4,6 +4,7 @@ import Login from "../Login/Login";
 import './Home.css';
 
 export default function Home(props){  
+    // localStorage.clear();
     const [isLoggedIn, setLoggedIn] = useState("false");
 
     useEffect(() => {
@@ -13,31 +14,23 @@ export default function Home(props){
         }, [])
     }, 5000)
 
-    // if (isLoggedIn === "false"){
-    //     return(
-    //         <div class="content">
-    //             <h1>Event managment System</h1>
-    //             <Login/>
-    //         </div>
-    //     )
+    if (!isLoggedIn || isLoggedIn === "false"){
+        return(
+            <div class="content">
+                <h1>Event management System</h1>
+                <Login/>
+            </div>
+        )
 
-    // }
+    }
 
-    // else{
-    //     return(
-    //         <div class = "content">
-    //             <h1>Event managment system</h1>
-    //         </div>
+    else{
+        return(
+            <div class = "content">
+                <h1>Event management system</h1>
+            </div>
             
-    //     )
-    // }
-
-    return(
-                 <div class="content">
-                     <h1>Event managment System</h1>
-                     <Login/>
-                 </div>
-             )
-
+        )
+    }
     
 }

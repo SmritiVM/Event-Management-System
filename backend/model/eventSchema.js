@@ -9,6 +9,7 @@ const eventSchema = new mongoose.Schema({
     "club": {type:String},
     "description": {type:String},
     "slots": {type: Number},
+    "registeredUsers" : {type:Array},
     
 
 }, {

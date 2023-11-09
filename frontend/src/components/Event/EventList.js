@@ -19,7 +19,7 @@ const EventList = () => {
   
   const EventListItems  = () => {
     return arr.map((val, index) => {
-      return <EventCard obj = {val}/>
+      return <EventCard obj = {val} action = "book"/>
     })
   }
   return (

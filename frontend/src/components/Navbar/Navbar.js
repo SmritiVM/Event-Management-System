@@ -24,7 +24,7 @@ export default function Navbar(props){
         return(
             <nav class="navbar">
                 <div class="icon"> 
-                <h2 class="logo">VIT Chennai</h2>
+                <h2 class="logo">Logo</h2>
                 </div>
                 <div class="menu">
                     <ul>
@@ -41,7 +41,6 @@ export default function Navbar(props){
                         {user}
                     </button>
                     <div class = "dropdown-content">
-                        <Link to = "#">Edit Profile</Link>
                         <Link to = "/" onClick={logout}>Logout</Link>
                     </div>
                     
@@ -55,7 +54,7 @@ export default function Navbar(props){
         return(
             <nav class="navbar">
                 <div class="icon"> 
-                <h2 class="logo">VIT Chennai</h2>
+                <h2 class="logo">Logo</h2>
                 </div>
                 <div class="menu">
                     <ul>
@@ -83,7 +82,7 @@ export default function Navbar(props){
         return(
             <nav class="navbar">
                 <div class="icon"> 
-                <h2 class="logo">VIT Chennai</h2>
+                <h2 class="logo">Logo</h2>
                 </div>
                 <div class="menu">
                     <ul>

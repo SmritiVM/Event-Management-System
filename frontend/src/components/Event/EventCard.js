@@ -4,20 +4,24 @@ import Card from 'react-bootstrap/Card';
 import "./Events.css";
 
 function EventCard(props){
-    const [description, setDescription] = useState(
+    const {_id, name, date, place, club, time, description, slots, startTime, endTime} = props.obj;
+    let year = date.slice(0,4);
+    let month = date.slice(5,7);
+    let day = date.slice(8,10);
+    const [desc, setDescription] = useState(
         <Card.Text style={{fontSize:"1.75vw", fontWeight:"bolder"}}>
-            Date: {props.date}<br></br>
-            Time: {props.time}<br></br>
-            Place: {props.place}<br></br>
+            Date: {day}-{month}-{year}<br></br>
+            Time: {startTime} to {endTime}<br></br>
+            Place: {place}<br></br>
         </Card.Text>
     )
 
     const closeDescription = () => {
         setDescription(
             <Card.Text style={{fontSize:"1.75vw", fontWeight:"bolder"}}>
-            Date: {props.date}<br></br>
-            Time: {props.time}<br></br>
-            Place: {props.place}<br></br>
+            Date: {day}-{month}-{year}<br></br>
+            Time: {startTime} to {endTime}<br></br>
+            Place: {place}<br></br>
             </Card.Text>
         )
         setDescButton(
@@ -27,7 +31,7 @@ function EventCard(props){
     const viewDescription = () => {
         setDescription(
         <Card.Text style={{fontSize:"1.75vw", fontWeight:"bolder"}}>
-            {props.description}
+            {description}
         </Card.Text> 
         )
         setDescButton(
@@ -42,9 +46,9 @@ function EventCard(props){
     return (
         <Card className='eventCard'>
         <Card.Body>
-            <Card.Title style={{fontSize:"2vw", fontWeight:"bolder"}}>{props.name}</Card.Title>
-            <Card.Subtitle style={{fontSize:"1.3vw", fontWeight:"bold", "fontStyle":"italic"}}>{props.club}</Card.Subtitle>
-            {description}
+            <Card.Title style={{fontSize:"2vw", fontWeight:"bolder"}}>{name}</Card.Title>
+            <Card.Subtitle style={{fontSize:"1.3vw", fontWeight:"bold", "fontStyle":"italic"}}>{club}</Card.Subtitle>
+            {desc}
             {descButton}
             <button className='cardButton' style={{"backgroundColor": "greenyellow"}}>Book Now!</button>
         </Card.Body>

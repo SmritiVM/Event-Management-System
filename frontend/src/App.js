@@ -5,7 +5,7 @@ import Footer from "./components/Footer/Footer";
 import Home from './components/Home/Home';
 import RegistrationForm from './components/Login/Register';
 import EventRegistrationForm from './components/Event/eventform';
-import EventList from './components/Event/Events';
+import EventList from './components/Event/EventList';
 
 import './App.css';
 

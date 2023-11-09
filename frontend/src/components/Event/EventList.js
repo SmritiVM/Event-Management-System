@@ -19,19 +19,14 @@ const EventList = () => {
   
   const EventListItems  = () => {
     return arr.map((val, index) => {
-      return <EventCard obj = {val} action = "book"/>
+      const slotsLeft = "Slots Left: " + `${val.slots}`;
+      return <EventCard obj = {val} action = "book" slotsLeft = {slotsLeft} />
     })
   }
   return (
     <div>
       <div fluid className='cardContainer'>
             {EventListItems()}
-            {/* <EventCard name = "Lohri" club = "CultureIT" date = "2023-04-02" time = "17:30 - 18:30" place = "Cricket ground" description = "yolo yolo yolo ya"/>
-            <EventCard name = "Lohri" club = "CultureIT" date = "2023-04-02" time = "17:30 - 18:30" place = "Cricket ground"/>
-            <EventCard name = "Lohri" club = "CultureIT" date = "2023-04-02" time = "17:30 - 18:30" place = "Cricket ground"/>
-            <EventCard name = "Lohri" club = "CultureIT" date = "2023-04-02" time = "17:30 - 18:30" place = "Cricket ground"/>
-            <EventCard name = "Lohri" club = "CultureIT" date = "2023-04-02" time = "17:30 - 18:30" place = "Cricket ground"/>
-            <EventCard name = "Lohri" club = "CultureIT" date = "2023-04-02" time = "17:30 - 18:30" place = "Cricket ground"/> */}
       </div>
     </div>
   );

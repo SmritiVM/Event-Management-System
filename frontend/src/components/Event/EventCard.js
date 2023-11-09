@@ -11,10 +11,11 @@ function EventCard(props){
     let month = date.slice(5,7);
     let day = date.slice(8,10);
 
+    const user = localStorage.getItem("user");// Get current user
 
     // Function to book event
     const Book = () => {
-        const user = localStorage.getItem("user");// Get current user
+        
         Axios.get("http://localhost:4000/eventRoute/check-user/" + user)
         .then((res) => {
             if(res.status === 200){
@@ -81,17 +82,29 @@ function EventCard(props){
 
     // Setting action button according to booking, viewing and admin privileges 
     const [actionButton, setActionButton] = useState();
+    // const [slotsLeft, setSlotsLeft] = useState("Slots Left: " + `${slots}`);
 
     useEffect(() => {
         if (props.action === "book"){
             setActionButton(
             <button className='cardButton' style={{"backgroundColor": "greenyellow"}} onClick={Book}>
                 Book Now!
-            </button>)
+            </button>);
         }
 
         else if (props.action === "view"){
             setActionButton();
+        }
+
+        if (user === "admin"){
+            setActionButton(
+            <div><button className='cardButton' style={{"backgroundColor": "green"}} onClick={Book}>
+                Delete
+            </button>
+            <button className='cardButton' style={{"backgroundColor": "red"}} onClick={Book}>
+            Update
+            </button>
+            </div>);
         }
     }, [])
 
@@ -103,7 +116,7 @@ function EventCard(props){
             Date: {day}-{month}-{year}<br></br>
             Time: {startTime} to {endTime}<br></br>
             Place: {place}<br></br>
-            Slots Left: {slots}<br></br>
+            {props.slotsLeft}
         </Card.Text>
     )
 
@@ -113,7 +126,7 @@ function EventCard(props){
             Date: {day}-{month}-{year}<br></br>
             Time: {startTime} to {endTime}<br></br>
             Place: {place}<br></br>
-            Slots Left: {slots}<br></br>
+            {props.slotsLeft}
             </Card.Text>
         )
         setDescButton(

@@ -30,7 +30,7 @@ export default function Navbar(props){
                     <ul>
                     <li><Link to = "/">Home</Link></li>
                     <li><Link to = "#">About</Link></li>
-                    <li><Link to = "#">View Events</Link></li>
+                    <li><Link to = "/view-event">View Events</Link></li>
                     <li><Link to = "/create-event">Create Event</Link></li>
                     <li><Link to = "#">View Users</Link></li>
                 </ul>
@@ -70,6 +70,7 @@ export default function Navbar(props){
                     </button>
                     <div class = "dropdown-content">
                         <Link to = "#">Edit Profile</Link>
+                        <Link to = "/booked-events">Booked Events</Link>
                         <Link to = "/" onClick={logout}>Logout</Link>
                     </div>
                     

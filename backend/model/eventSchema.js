@@ -8,7 +8,6 @@ const eventSchema = new mongoose.Schema({
     "place": {type:String},
     "club": {type:String},
     "description": {type:String},
-    "registrationFee" : {type:Number},
     "slots": {type: Number},
     
 

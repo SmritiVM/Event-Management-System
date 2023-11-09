@@ -6,12 +6,11 @@ import "./Events.css";
 
 function EventCard(props){
     // Extracting event details from database
-    const {_id, name, date, place, club, time, description, slots, startTime, endTime} = props.obj;
+    const {_id, name, date, place, club, description, slots, startTime, endTime, registeredUsers} = props.obj;
     let year = date.slice(0,4);
     let month = date.slice(5,7);
     let day = date.slice(8,10);
 
-    const [userId, setUserId] = useState();
 
     // Function to book event
     const Book = () => {
@@ -20,33 +19,61 @@ function EventCard(props){
         .then((res) => {
             if(res.status === 200){
                 if(res.data != null){
-                    console.log(res.data.bookedEvents);
                     const check = res.data.bookedEvents.some(e => e._id === props.obj._id);
                     if (check){
                         alert("Event already registered");
                     }
                     else{
 
+                        //Data for user updation
+                        const userData = res.data;
+                        // const data = {username: user, fullName: res.data.fullName,
+                        // email: res.data.email, phone: res.data.phone, password: res.data.password,
+                        userData.bookedEvents = [...userData.bookedEvents,
+                            {_id, name, date, place, club, description, startTime, endTime}];
+
+                        //Data for event updation
+                        const eventData = props.obj;
+                        eventData.slots = eventData.slots - 1;
+                        eventData.registeredUsers = [...eventData.registeredUsers, 
+                            {username: user, fullName: res.data.fullName,
+                            email: res.data.email, phone: res.data.phone}];
+
+                        Axios.all([
                         // Updating user information and adding event
-                        setUserId(res.data._id);
-                        const data = {username: user, fullName: res.data.fullName,
-                        email: res.data.email, phone: res.data.phone, password: res.data.password,
-                        bookedEvents: [...res.data.bookedEvents, props.obj]};
-                        console.log(data);
-                        Axios.put("http://localhost:4000/eventRoute/update-user/" + userId, data)
+                        Axios.put("http://localhost:4000/eventRoute/update-user/" + res.data._id, userData)
                         .then((updateResponse) => {
                             if(updateResponse.status === 200)
                                 alert("Event Booked");
+                            
                             else
                                 Promise.reject();
                         })
-                        .catch((updateError) => alert(updateError));
+                        .catch((updateError) => alert(updateError)),
+                        
+                        
+                        // Updating event information by adding user and reducing slots
+                        Axios.put("http://localhost:4000/eventRoute/update-event/" + _id, eventData)
+                        .then((eventUpdateResponse) => {
+                            if(eventUpdateResponse.status === 200)
+                            {    
+                                console.log("Slot count reduced");
+                                       
+                            }
+                            else
+                                Promise.reject();
+                            })
+                        .catch((eventUpdateError) => alert(eventUpdateError))
+
+                        ])
                     }
                 }
             }
             else
                 Promise.reject();
-        })
+            }
+            
+        )
         .catch((err) => alert(err));
 
 

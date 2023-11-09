@@ -24,7 +24,6 @@ const EventList = () => {
   }
   return (
     <div>
-      <h1>Events list</h1>
       <div fluid className='cardContainer'>
             {EventListItems()}
             {/* <EventCard name = "Lohri" club = "CultureIT" date = "2023-04-02" time = "17:30 - 18:30" place = "Cricket ground" description = "yolo yolo yolo ya"/>

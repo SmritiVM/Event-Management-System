@@ -55,7 +55,10 @@ function App() {
           />
 
           <Route path = "/booked-events"
-          element = {<BookedEventsList/>}
+          element = {
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+            <BookedEventsList/>
+            </ProtectedRoute>}
           />
           
         </Routes>

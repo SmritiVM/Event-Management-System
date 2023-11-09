@@ -9,6 +9,7 @@ import Home from './components/Home/Home';
 import RegistrationForm from './components/Login/Register';
 import EventRegistrationForm from './components/Event/eventform';
 import EventList from './components/Event/EventList';
+import BookedEventsList from './components/Event/BookedEventsList';
 
 import './App.css';
 
@@ -51,6 +52,10 @@ function App() {
             <ProtectedRoute isLoggedIn={isLoggedIn}>
             <EventList/>
             </ProtectedRoute>}
+          />
+
+          <Route path = "/booked-events"
+          element = {<BookedEventsList/>}
           />
           
         </Routes>

@@ -25,6 +25,26 @@ eventRoute.route("/check-user/:uname")
     })
 })
 
+eventRoute.route("/update-user/:id")
+.get((req, res) => {
+    userSchema.findById(mongoose.Types.ObjectId(req.params.id), (err,data) => {
+        if(err)
+            return err;
+        else
+            res.json(data);
+    })
+}).put((req, res) => {
+    userSchema.findByIdAndUpdate(mongoose.Types.ObjectId(req.params.id),
+    {$set:req.body},
+    (err,data) => {
+        if(err)
+            return err;
+        else
+            res.json(data);
+    })
+})
+
+
 // Events
 eventRoute.get("/event-list", (req,res) => {
     eventSchema.find((err, data) => {

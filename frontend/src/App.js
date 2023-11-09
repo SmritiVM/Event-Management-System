@@ -15,7 +15,6 @@ import './App.css';
 
 
 function App() {
-  localStorage.clear();
   const [isLoggedIn, setLoggedIn] = useState("false");
   const [user, setUser] = useState();
 
@@ -44,7 +43,7 @@ function App() {
             element = {
             <ProtectedRouteAdmin currentUser={user}>
               <EventRegistrationForm/>
-              </ProtectedRouteAdmin>}
+            </ProtectedRouteAdmin>}
           />
 
           <Route path = "/view-event" 

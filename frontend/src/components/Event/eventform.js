@@ -13,14 +13,30 @@ export default function EventRegistrationForm () {
     club: '',
     slots: '',
   });
+  const [formErrors, setFormErrors] = useState({
+    name:'',
+    startTime: '',
+    endTime: '',
+    date: '',
+    place: '',
+    description:'',
+    club: '',
+    slots: '',
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+    setFormErrors({...formErrors, [name]: value ? '' : 'This field is manditory'});
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if(Object.values(formErrors).some((error) => error)){
+      alert('Kindly fill out the required fields correctly');
+      return;
+    }
+
     Axios.post("http://localhost:4000/eventRoute/create-event", formData)
     .then((res) => {
       if(res.status === 200)
@@ -46,6 +62,7 @@ export default function EventRegistrationForm () {
             onChange={handleChange}
             required
           />
+          <div className='error'>{formErrors.name}</div>
         </div>
         <div>
           <label htmlFor="startTime">Event Start Time:</label>
@@ -57,6 +74,7 @@ export default function EventRegistrationForm () {
             onChange={handleChange}
             required
           />
+          <div classNmae='error'>{formErrors.startTime}</div>
         </div>
         <div>
           <label htmlFor="endTime">Event End Time:</label>
@@ -68,6 +86,7 @@ export default function EventRegistrationForm () {
             onChange={handleChange}
             required
           />
+          <div classNmae='error'>{formErrors.endTimeTime}</div>
         </div>
         <div>
           <label htmlFor="date">Event Date:</label>
@@ -79,6 +98,7 @@ export default function EventRegistrationForm () {
             onChange={handleChange}
             required
           />
+          <div classNmae='error'>{formErrors.date}</div>
         </div>
         <div>
           <label htmlFor="place">Event Place:</label>
@@ -90,6 +110,7 @@ export default function EventRegistrationForm () {
             onChange={handleChange}
             required
           />
+          <div classNmae='error'>{formErrors.place}</div>
         </div>
         <div>
           <label htmlFor="description">Description:</label>
@@ -100,6 +121,7 @@ export default function EventRegistrationForm () {
             onChange={handleChange}
             required
           />
+          <div classNmae='error'>{formErrors.description}</div>
         </div>
         <div>
           <label htmlFor="club">Name of the Club:</label>
@@ -111,6 +133,7 @@ export default function EventRegistrationForm () {
             onChange={handleChange}
             required
           />
+          <div classNmae='error'>{formErrors.club}</div>
         </div>
         <div>
           <label htmlFor="slots">Number of Slots:</label>
@@ -122,6 +145,7 @@ export default function EventRegistrationForm () {
             onChange={handleChange}
             required
           />
+          <div classNmae='error'>{formErrors.slots}</div>
         </div>
         <button type="submit">Register</button>
       </form>

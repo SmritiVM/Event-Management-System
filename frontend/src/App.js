@@ -6,6 +6,8 @@ import ProtectedRouteAdmin from './components/ProtectedRoutedAdmin';
 import Navbar from './components/Navbar/Navbar';
 import Footer from "./components/Footer/Footer";
 import Home from './components/Home/Home';
+import ContactPage from './components/contact';
+
 import RegistrationForm from './components/Login/Register';
 import EventRegistrationForm from './components/Event/eventform';
 import EventList from './components/Event/EventList';
@@ -35,6 +37,7 @@ function App() {
         <Routes>
           {/* General paths */}
           <Route path = "/" element = {<Home/>}/>
+          <Route path = "/contact" element = {<ContactPage/>}/>
 
           {/* User paths */}
           <Route path = "/register" element = {<RegistrationForm/>}/>

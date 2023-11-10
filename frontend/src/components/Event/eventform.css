@@ -1,69 +1,55 @@
-/* .eventFormContainer {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-} */
-
 .eventForm {
-  max-width: 400px;
+  max-width: 600px;
+  margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(218, 216, 216, 0.5);
 }
-
-.eventForm h1 {
+h1 {
   text-align: center;
+  color: #fff;
 }
 
-.eventForm form {
+form {
   display: flex;
   flex-direction: column;
 }
 
-.eventForm label {
-  font-weight: bold;
-  margin-bottom: 5px;
+div {
+  margin-bottom: 15px;
 }
 
-.eventForm input[type="text"],
-input[type="time"],
-input[type="date"],
-input[type="number"],
-textarea {
+label {
+  font-weight: bold;
+  color: #fff;
+}
+
+input,
+textarea,
+select {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 16px;
 }
 
-.eventForm textarea {
-  height: 100px;
+textarea {
+  resize: vertical;
 }
 
-.eventForm button {
-  background-color: #007BFF;
-  color: #fff;
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
   border: none;
   border-radius: 4px;
-  padding: 10px 20px;
-  font-size: 16px;
   cursor: pointer;
 }
 
-.eventForm button:hover {
-  background-color: #0056b3;
+button:hover {
+  background-color: #45a049;
 }
 
-.error {
-  color: red;
-  font-size: 14px;
-  margin-top: 5px;
-}

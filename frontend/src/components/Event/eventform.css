@@ -24,10 +24,6 @@ label {
   font-weight: bold;
   color: #fff;
 }
-.error {
-  color: red;
-  margin-top: 5px;
-}
 
 input,
 textarea,
@@ -38,6 +34,10 @@ select {
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+.error{
+  color: red;
+  margin-top: 5px;
 }
 textarea {
   resize: vertical;

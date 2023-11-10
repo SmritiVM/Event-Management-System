@@ -47,7 +47,6 @@ export default function EventRegistrationForm () {
     .catch((err) => alert(err));
     // console.log(formData);
   };
-
   return (
     <div className='eventForm'>
       <h1>Event Registration Form</h1>

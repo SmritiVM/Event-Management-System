@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import React, { useState } from 'react';
-import 'eventform.css';
+import './eventform.css';
 
 export default function EventRegistrationForm () {
   const [formData, setFormData] = useState({

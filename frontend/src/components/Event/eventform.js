@@ -33,7 +33,7 @@ export default function EventRegistrationForm () {
   };
 
   return (
-    <div>
+    <div className='eventForm'>
       <h1>Event Registration Form</h1>
       <form onSubmit={handleSubmit}>
         <div>

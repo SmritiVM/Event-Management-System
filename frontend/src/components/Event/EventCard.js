@@ -1,23 +1,138 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
+import Axios from "axios";
 
 import "./Events.css";
 
 function EventCard(props){
-    const [description, setDescription] = useState(
+    // Extracting event details from database
+    const {_id, name, date, place, club, description, slots, startTime, endTime, registeredUsers} = props.obj;
+    let year = date.slice(0,4);
+    let month = date.slice(5,7);
+    let day = date.slice(8,10);
+
+    const user = localStorage.getItem("user");// Get current user
+
+    // Function to book event
+    const Book = () => {
+        
+        
+        Axios.get("http://localhost:4000/eventRoute/check-user/" + user)
+        .then((res) => {
+            if(res.status === 200){
+                if(res.data != null){
+                    const check = res.data.bookedEvents.some(e => e._id === props.obj._id);
+                    if (check){
+                        alert("Event already registered");
+                    }
+
+                    else if (slots === 0){
+                        alert("Slots Full! Cannot register");
+                    }
+
+                    else{
+
+                        //Data for user updation
+                        const userData = res.data;
+                        // const data = {username: user, fullName: res.data.fullName,
+                        // email: res.data.email, phone: res.data.phone, password: res.data.password,
+                        userData.bookedEvents = [...userData.bookedEvents,
+                            {_id, name, date, place, club, description, startTime, endTime}];
+
+                        //Data for event updation
+                        const eventData = props.obj;
+                        eventData.slots = eventData.slots - 1;
+                        eventData.registeredUsers = [...eventData.registeredUsers, 
+                            {username: user, fullName: res.data.fullName,
+                            email: res.data.email, phone: res.data.phone}];
+
+                        Axios.all([
+                        // Updating user information and adding event
+                        Axios.put("http://localhost:4000/eventRoute/update-user/" + res.data._id, userData)
+                        .then((updateResponse) => {
+                            if(updateResponse.status === 200)
+                                alert("Event Booked");
+                            
+                            else
+                                Promise.reject();
+                        })
+                        .catch((updateError) => alert(updateError)),
+                        
+                        
+                        // Updating event information by adding user and reducing slots
+                        Axios.put("http://localhost:4000/eventRoute/update-event/" + _id, eventData)
+                        .then((eventUpdateResponse) => {
+                            if(eventUpdateResponse.status === 200)
+                            {    
+                                console.log("Slot count reduced");
+                                       
+                            }
+                            else
+                                Promise.reject();
+                            })
+                        .catch((eventUpdateError) => alert(eventUpdateError))
+
+                        ])
+                    }
+                }
+            }
+            else
+                Promise.reject();
+            }
+            
+        )
+        .catch((err) => alert(err));
+        
+
+    }
+
+    // Setting action button according to booking, viewing and admin privileges 
+    const [actionButton, setActionButton] = useState();
+    // const [slotsLeft, setSlotsLeft] = useState("Slots Left: " + `${slots}`);
+
+    useEffect(() => {
+        if (props.action === "book"){
+            setActionButton(
+            <button className='cardButton' style={{"backgroundColor": "greenyellow"}} onClick={Book}>
+                Book Now!
+            </button>);
+        }
+
+        else if (props.action === "view"){
+            setActionButton();
+        }
+
+        if (user === "admin"){
+            setActionButton(
+            <div><button className='cardButton' style={{"backgroundColor": "green"}} onClick={Book}>
+                Delete
+            </button>
+            <button className='cardButton' style={{"backgroundColor": "red"}} onClick={Book}>
+            Update
+            </button>
+            </div>);
+        }
+    }, [])
+
+    
+
+    // Displaying description based on condition
+    const [desc, setDescription] = useState(
         <Card.Text style={{fontSize:"1.75vw", fontWeight:"bolder"}}>
-            Date: {props.date}<br></br>
-            Time: {props.time}<br></br>
-            Place: {props.place}<br></br>
+            Date: {day}-{month}-{year}<br></br>
+            Time: {startTime} to {endTime}<br></br>
+            Place: {place}<br></br>
+            {props.slotsLeft}
         </Card.Text>
     )
 
     const closeDescription = () => {
         setDescription(
             <Card.Text style={{fontSize:"1.75vw", fontWeight:"bolder"}}>
-            Date: {props.date}<br></br>
-            Time: {props.time}<br></br>
-            Place: {props.place}<br></br>
+            Date: {day}-{month}-{year}<br></br>
+            Time: {startTime} to {endTime}<br></br>
+            Place: {place}<br></br>
+            {props.slotsLeft}
             </Card.Text>
         )
         setDescButton(
@@ -27,7 +142,7 @@ function EventCard(props){
     const viewDescription = () => {
         setDescription(
         <Card.Text style={{fontSize:"1.75vw", fontWeight:"bolder"}}>
-            {props.description}
+            {description}
         </Card.Text> 
         )
         setDescButton(
@@ -39,14 +154,15 @@ function EventCard(props){
         <button className='cardButton' style={{"backgroundColor":"wheat"}} onClick={viewDescription}>View Description</button>
     )
     
+    
     return (
         <Card className='eventCard'>
         <Card.Body>
-            <Card.Title style={{fontSize:"2vw", fontWeight:"bolder"}}>{props.name}</Card.Title>
-            <Card.Subtitle style={{fontSize:"1.3vw", fontWeight:"bold", "fontStyle":"italic"}}>{props.club}</Card.Subtitle>
-            {description}
+            <Card.Title style={{fontSize:"2vw", fontWeight:"bolder"}}>{name}</Card.Title>
+            <Card.Subtitle style={{fontSize:"1.3vw", fontWeight:"bold", "fontStyle":"italic"}}>{club}</Card.Subtitle>
+            {desc}
             {descButton}
-            <button className='cardButton' style={{"backgroundColor": "greenyellow"}}>Book Now!</button>
+            {actionButton}
         </Card.Body>
         
         </Card>

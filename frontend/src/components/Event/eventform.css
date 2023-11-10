@@ -1,4 +1,4 @@
-body {
+/* .eventFormContainer {
   font-family: Arial, sans-serif;
   background-color: #f2f2f2;
   margin: 0;
@@ -7,9 +7,9 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-}
+} */
 
-.container {
+.eventForm {
   max-width: 400px;
   padding: 20px;
   background-color: #fff;
@@ -17,21 +17,21 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-h1 {
+.eventForm h1 {
   text-align: center;
 }
 
-form {
+.eventForm form {
   display: flex;
   flex-direction: column;
 }
 
-label {
+.eventForm label {
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-input[type="text"],
+.eventForm input[type="text"],
 input[type="time"],
 input[type="date"],
 input[type="number"],
@@ -44,11 +44,11 @@ textarea {
   font-size: 16px;
 }
 
-textarea {
+.eventForm textarea {
   height: 100px;
 }
 
-button {
+.eventForm button {
   background-color: #007BFF;
   color: #fff;
   border: none;
@@ -58,7 +58,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.eventForm button:hover {
   background-color: #0056b3;
 }
 

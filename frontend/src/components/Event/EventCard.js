@@ -16,6 +16,7 @@ function EventCard(props){
     // Function to book event
     const Book = () => {
         
+        
         Axios.get("http://localhost:4000/eventRoute/check-user/" + user)
         .then((res) => {
             if(res.status === 200){
@@ -24,6 +25,11 @@ function EventCard(props){
                     if (check){
                         alert("Event already registered");
                     }
+
+                    else if (slots === 0){
+                        alert("Slots Full! Cannot register");
+                    }
+
                     else{
 
                         //Data for user updation
@@ -76,7 +82,7 @@ function EventCard(props){
             
         )
         .catch((err) => alert(err));
-
+        
 
     }
 

@@ -14,7 +14,14 @@ eventRoute.get("/user-list", (req,res) => {
             res.json(data);
     })
 })
-
+eventRoute.post("/create-user", (req,res) => {
+    userSchema.create(req.body, (err,data) => {
+        if(err)
+            return err;
+        else
+            res.json(data);
+    })
+})
 eventRoute.route("/check-user/:uname")
 .get((req, res) => {
     userSchema.findOne({username: req.params.uname}, (err,data) => {
@@ -44,6 +51,16 @@ eventRoute.route("/update-user/:id")
             res.json(data);
     })
 })
+eventRoute.delete("/delete-user/:id",(req,res)=>{
+    userSchema.findByIdAndRemove(mongoose.Types.ObjectId(req.params.id),
+    (err,data)=>{
+        if(err)
+            return err;
+        else
+            res.json(data);
+    })
+})
+
 
 // -----------------------------------------------------------------------------------------
 // Events
@@ -83,5 +100,13 @@ eventRoute.route("/update-event/:id")
             res.json(data);
     })
 })
-
+eventRoute.delete("/delete-event/:id",(req,res)=>{
+    eventSchema.findByIdAndRemove(mongoose.Types.ObjectId(req.params.id),
+    (err,data)=>{
+        if(err)
+            return err;
+        else
+            res.json(data);
+    })
+})
 module.exports = eventRoute;

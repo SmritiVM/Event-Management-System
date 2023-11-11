@@ -86,9 +86,22 @@ function EventCard(props){
 
     }
 
+    // Function to delete event
+    const deleteEvent = () => {
+        Axios.delete("http://localhost:4000/eventRoute/delete-event/" + _id)
+        .then((res) => {
+            if(res.status === 200){
+                alert("Event deleted successfully");
+                window.location.reload();
+            }
+            else
+                Promise.reject();
+        })
+        .catch((err) => alert(err))
+    }
+    
     // Setting action button according to booking, viewing and admin privileges 
     const [actionButton, setActionButton] = useState();
-    // const [slotsLeft, setSlotsLeft] = useState("Slots Left: " + `${slots}`);
 
     useEffect(() => {
         if (props.action === "book"){
@@ -104,11 +117,11 @@ function EventCard(props){
 
         if (user === "admin"){
             setActionButton(
-            <div><button className='cardButton' style={{"backgroundColor": "green"}} onClick={Book}>
+            <div><button className='cardButton' style={{"backgroundColor": "green"}} onClick={deleteEvent}>
                 Delete
             </button>
-            <button className='cardButton' style={{"backgroundColor": "red"}} onClick={Book}>
-            Update
+            <button className='cardButton' style={{"backgroundColor": "red"}}>
+                Update
             </button>
             </div>);
         }

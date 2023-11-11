@@ -86,9 +86,86 @@ function EventCard(props){
 
     }
 
+    // Function to view list of all registered users
+    const registeredUserItems = () => {
+        return registeredUsers.map((val, index) => {
+            return(
+                <tr>
+                    <td>{val.username}</td>
+                    <td>{val.fullName}</td>
+                    <td>{val.email}</td>
+                    <td>{val.phone}</td>    
+                </tr>
+            )
+        })
+    }
+    const viewRegisteredUsers = () => {
+        setDescription(
+            <table className='userTable' border = "1" bordercolor = "white" cellspacing = "0" cellpadding = "5">
+                <thead>
+                    <tr>
+                        <th class = "text-center">Username</th>
+                        <th class = "text-center">Full Name</th>
+                        <th class = "text-center">Email</th>
+                        <th class = "text-center">Phone</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {registeredUserItems()}
+                </tbody>
+            </table>
+        )
+        setActionButton(   
+            <div>
+            <button className='cardButton' style={{"backgroundColor": "blue"}} onClick={closeRegisteredUsers}>
+                Close Registered Users
+            </button>
+            <button className='cardButton' style={{"backgroundColor": "green"}} onClick={deleteEvent}>
+                Delete
+            </button>
+            <button className='cardButton' style={{"backgroundColor": "red"}}>
+                Update
+            </button>
+            </div>);
+    }
+    const closeRegisteredUsers = () => {
+        setDescription(
+            <Card.Text style={{fontSize:"1.75vw", fontWeight:"bolder"}}>
+            Date: {day}-{month}-{year}<br></br>
+            Time: {startTime} to {endTime}<br></br>
+            Place: {place}<br></br>
+            {props.slotsLeft}
+            </Card.Text>
+        )
+        setActionButton(   
+            <div><button className='cardButton' style={{"backgroundColor": "blue"}} onClick={viewRegisteredUsers}>
+                View Registered Users
+            </button>
+            <button className='cardButton' style={{"backgroundColor": "green"}} onClick={deleteEvent}>
+                Delete
+            </button>
+            <button className='cardButton' style={{"backgroundColor": "red"}}>
+                Update
+            </button>
+            </div>);
+    }
+     
+    // Function to delete event
+    const deleteEvent = () => {
+        Axios.delete("http://localhost:4000/eventRoute/delete-event/" + _id)
+        .then((res) => {
+            if(res.status === 200){
+                alert("Event deleted successfully");
+                window.location.reload();
+            }
+            else
+                Promise.reject();
+        })
+        .catch((err) => alert(err))
+    }
+    
     // Setting action button according to booking, viewing and admin privileges 
     const [actionButton, setActionButton] = useState();
-    // const [slotsLeft, setSlotsLeft] = useState("Slots Left: " + `${slots}`);
 
     useEffect(() => {
         if (props.action === "book"){
@@ -103,12 +180,15 @@ function EventCard(props){
         }
 
         if (user === "admin"){
-            setActionButton(
-            <div><button className='cardButton' style={{"backgroundColor": "green"}} onClick={Book}>
+            setActionButton(   
+            <div><button className='cardButton' style={{"backgroundColor": "blue"}} onClick={viewRegisteredUsers}>
+                View Registered Users
+            </button>
+            <button className='cardButton' style={{"backgroundColor": "green"}} onClick={deleteEvent}>
                 Delete
             </button>
-            <button className='cardButton' style={{"backgroundColor": "red"}} onClick={Book}>
-            Update
+            <button className='cardButton' style={{"backgroundColor": "red"}}>
+                Update
             </button>
             </div>);
         }

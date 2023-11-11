@@ -1,12 +1,12 @@
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import ProtectedRoute from './components/ProtectedRoute';
-import ProtectedRouteAdmin from './components/ProtectedRoutedAdmin';
+import ProtectedRoute from './components/Protected/ProtectedRoute';
+import ProtectedRouteAdmin from './components/Protected/ProtectedRoutedAdmin';
 
 import Navbar from './components/Navbar/Navbar';
 import Footer from "./components/Footer/Footer";
 import Home from './components/Home/Home';
-import ContactPage from './components/contact';
+import ContactPage from './components/ContactPage/ContactPage';
 
 import RegistrationForm from './components/Login/Register';
 import EventRegistrationForm from './components/Event/eventform';

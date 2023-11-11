@@ -1,33 +1,69 @@
 .eventForm {
   max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 25px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(218, 216, 216, 0.5);
+  background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%);
+  transform: translate(0%,25px);
+  position: center;
 }
-h1 {
+.eventForm h1 {
   text-align: center;
-  color: #fff;
+  font-family: sans-serif;
+  background-color: #fff;
+  color: #ff7200;
+  font-size: 22px;
+  border-radius: 10px;
+  margin-bottom:  30px;
+  padding: 8px;
 }
-
-form {
+.eventForm {
   display: flex;
   flex-direction: column;
 }
-
 div {
   margin-bottom: 15px;
 }
-
-label {
+.eventForm label {
   font-weight: bold;
   color: #fff;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  margin-bottom: 10px;
+}
+.eventForm input{
+  width: 90%;
+  padding: 10px;
+  margin: 5px 0;
+  background: transparent;
+  border-bottom: 1px solid #ff7200;
+  border-top: 1px solid #ff7200;
+  border-right: 1px solid #ff7200;
+  border-left: 1px solid #ff7200;
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  font-family: sans-serif;
+
 }
 
-input,
-textarea,
-select {
+.eventForm input:focus{
+  outline: none;
+}
+.eventForm .link{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  padding-top: 20px;
+  text-align: center;
+}
+.eventForm .link a{
+  text-decoration: none;
+  color: #ff7200;
+}
+select{
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -36,23 +72,56 @@ select {
   border-radius: 4px;
 }
 .error{
-  color: red;
+  color:#ff7200;
   margin-top: 5px;
 }
 textarea {
+  width: 95%;
+  padding: 10px;
+  margin: 5px 0;
+  background: transparent;
+  box-sizing: border-box;
+  border: 1px solid ;
+  border-radius: 4px;
+  border-bottom: 1px solid #ff7200;
+  border-top: 1px solid #ff7200;
+  border-right: 1px solid #ff7200;
+  border-left: 1px solid #ff7200;
   resize: vertical;
 }
-
-button {
-  background-color: #4caf50;
-  color: white;
+.eventForm button {
+  min-height: 55px;
+  width: 100%;
+  background-color: #ff7200;;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-family: sans-serif;
   padding: 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-button:hover {
-  background-color: #45a049;
+.eventForm button:hover {
+  background-color: #ff7200;;
 }
-
+.icons a{
+  text-decoration: none;
+  color: #fff;
+}
+.icons ion-icon{
+  color: #fff;
+  font-size: 30px;
+  padding-left: 14px;
+  padding-top: 5px;
+  transition: 0.3s ease;
+}
+.icons ion-icon:hover{
+  color: #ff7200;
+}

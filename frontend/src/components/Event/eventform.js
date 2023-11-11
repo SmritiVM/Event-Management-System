@@ -59,7 +59,6 @@ export default function EventRegistrationForm () {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="Enter name of the event"
             required
           />
           <div className='error'>{formErrors.name}</div>
@@ -108,7 +107,6 @@ export default function EventRegistrationForm () {
             name="place"
             value={formData.place}
             onChange={handleChange}
-            placeholder="Enter the place of the event"
             required
           />
           <div classNmae='error'>{formErrors.place}</div>
@@ -133,7 +131,6 @@ export default function EventRegistrationForm () {
             name="club"
             value={formData.club}
             onChange={handleChange}
-            placeholder="Enter name of the club"
             required
           />
           <div classNmae='error'>{formErrors.club}</div>
@@ -146,7 +143,6 @@ export default function EventRegistrationForm () {
             name="slots"
             value={formData.slots}
             onChange={handleChange}
-            placeholder='Enter  the number of slots'
             required
           />
           <div classNmae='error'>{formErrors.slots}</div>

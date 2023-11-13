@@ -1,14 +1,14 @@
-.eventForm {
-  max-width: 600px;
+.registration-container {
+  width: 400px; /* Adjust the width as needed */
   margin: 0 auto;
-  padding: 25px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%);
-  transform: translate(0%,25px);
-  position: center;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
-.eventForm h1 {
+
+.registration-container h1 {
   text-align: center;
   font-family: sans-serif;
   background-color: #fff;
@@ -18,14 +18,15 @@
   margin-bottom:  30px;
   padding: 8px;
 }
-.eventForm {
+
+.registration-container {
   display: flex;
   flex-direction: column;
 }
 div {
   margin-bottom: 15px;
 }
-.eventForm label {
+.registration-container label {
   font-weight: bold;
   color: #fff;
   font-size: 15px;
@@ -33,7 +34,7 @@ div {
   font-family: sans-serif;
   margin-bottom: 10px;
 }
-.eventForm input{
+.registration-container input{
   width: 90%;
   padding: 10px;
   margin: 5px 0;
@@ -71,10 +72,12 @@ select{
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
 .error{
   color:#ff7200;
   margin-top: 5px;
 }
+
 textarea {
   width: 95%;
   padding: 10px;
@@ -89,7 +92,7 @@ textarea {
   border-left: 1px solid #ff7200;
   resize: vertical;
 }
-.eventForm button {
+.registration-container button {
   min-height: 55px;
   width: 100%;
   background-color: #ff7200;;
@@ -108,7 +111,7 @@ textarea {
   transition: all 0.2s ease;
 }
 
-.eventForm button:hover {
+.registration-container button:hover {
   background-color: #ff7200;;
 }
 .icons a{
@@ -125,3 +128,5 @@ textarea {
 .icons ion-icon:hover{
   color: #ff7200;
 }
+
+/* Add any other styling as needed */

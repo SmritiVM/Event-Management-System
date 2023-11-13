@@ -8,6 +8,11 @@
   transform: translate(0%,25px);
   position: center;
 }
+
+.editprofile-container {
+  display: flex;
+  flex-direction: column;
+}
 .editprofile-container h1 {
   text-align: center;
   font-family: sans-serif;
@@ -17,10 +22,6 @@
   border-radius: 10px;
   margin-bottom:  30px;
   padding: 8px;
-}
-.editprofile-container {
-  display: flex;
-  flex-direction: column;
 }
 div {
   margin-bottom: 15px;
@@ -115,3 +116,4 @@ textarea {
 .icons ion-icon:hover{
   color: #ff7200;
 }
+

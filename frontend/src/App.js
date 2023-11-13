@@ -43,6 +43,7 @@ function App() {
 
           {/* User paths */}
           <Route path = "/register" element = {<RegistrationForm/>}/>
+          <Route path = "/editprofile" element = {<EditProfileForm/>}/>
 
           {/* Event Paths */}
           <Route path = "/create-event" 
@@ -65,12 +66,12 @@ function App() {
             <BookedEventsList/>
             </ProtectedRoute>}
           />
-          <Route path = "/edit-profile"
+          /* <Route path = "/edit-profile"
           element ={
             <ProtectedRoute isLoggedIn={isLoggedIn}>
               <EditProfileForm/>
             </ProtectedRoute>}
-            />
+            /> */
           
 
         </Routes>

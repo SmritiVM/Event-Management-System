@@ -1,78 +1,4 @@
-/* .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  font-family: 'Arial, sans-serif';
-}
-
-.form {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-}
-
-.formGroup {
-  margin-bottom: 20px;
-}
-
-.label {
-  display: block;
-  margin-bottom: 8px;
-}
-
-.input {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 16px;
-  box-sizing: border-box;
-  border: 1px solid #000000;
-  border-radius: 4px;
-}
-
-.button {
-  background-color: #ff7200;
-  color: black;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: #fff;
-}
-
-.error {
-  color: #ff0000;
-}
-
-.feedbackList {
-  list-style: none;
-  padding: 0;
-}
-
-.feedbackItem {
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 4px;
-} */
-/* ContactPage.css */
-
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center; /* Center align the content */
-}
-
-.heading {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.form {
+.contact-container{
   max-width: 600px;
   margin: 0 auto;
   padding: 25px;
@@ -82,7 +8,24 @@
   transform: translate(0%,25px);
   position: center;
 }
-.form h1{
+.contactform{
+  width: 250px;
+  height: 380px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+  position: center;
+  top: -20px;
+  left: 870px;
+  transform: translate(0%,-5%);
+  border-radius: 10px;
+  padding: 30px;
+  margin-left: 150px;
+  margin-top: 20px;
+}
+.contact-container {
+  display: flex;
+  flex-direction: column;
+}
+.contact-container h1 {
   text-align: center;
   font-family: sans-serif;
   background-color: #fff;
@@ -92,49 +35,105 @@
   margin-bottom:  30px;
   padding: 8px;
 }
-.formGroup {
+h2{
+  color:#fff;
+  position:center;
+}
+p{
+  color: #fff;
+  position: center;
+}
+div {
   margin-bottom: 15px;
 }
+.contact-container label {
+  font-weight: bold;
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  margin-bottom: 10px;
+}
+.contactform input{
+  width: 90%;
+  padding: 10px;
+  margin: 5px 0;
+  background: transparent;
+  border-bottom: 1px solid #ff7200;
+  border-top: 1px solid #ff7200;
+  border-right: 1px solid #ff7200;
+  border-left: 1px solid #ff7200;
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  font-family: sans-serif;
 
-.label {
-  display: block;
-  margin-bottom: 5px;
 }
 
-.input {
+.contact-container input:focus{
+  outline: none;
+}
+select{
   width: 100%;
   padding: 8px;
+  margin-top: 5px;
   box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
-
-.error {
-  color: red;
-  font-size: 14px;
+.error{
+  color:#ff7200;
+  margin-top: 5px;
 }
-
-.button {
-  background-color: #ff7200;
-  color: #fff;
-  padding: 10px 15px;
+textarea {
+  width: 95%;
+  padding: 10px;
+  margin: 5px 0;
+  background: transparent;
+  box-sizing: border-box;
+  border: 1px solid ;
+  border-radius: 4px;
+  border-bottom: 1px solid #ff7200;
+  border-top: 1px solid #ff7200;
+  border-right: 1px solid #ff7200;
+  border-left: 1px solid #ff7200;
+  resize: vertical;
+}
+.contact-container button {
+  min-height: 55px;
+  width: 100%;
+  background-color: #ff7200;;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 30px;
   border: none;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.feedbackSection {
-  text-align: left; /* Align feedback items to the left */
+.contact-container button:hover {
+  background-color: #fff;
 }
-
-.feedbackList {
-  list-style: none;
-  padding: 0;
+.icons a{
+  text-decoration: none;
+  color: #fff;
 }
-
-.feedbackItem {
-  margin-bottom: 15px;
+.icons ion-icon{
+  color: #fff;
+  font-size: 30px;
+  padding-left: 14px;
+  padding-top: 5px;
+  transition: 0.3s ease;
 }
-
-.feedbackItem strong {
-  font-weight: bold;
-  margin-right: 5px;
+.icons ion-icon:hover{
+  color: #ff7200;
 }
 

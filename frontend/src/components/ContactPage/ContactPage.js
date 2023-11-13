@@ -61,11 +61,11 @@ class ContactPage extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="contact-container">
         <h1>Contact Us</h1>
-        <form onSubmit={this.handleSubmit} className="form">
+        <form onSubmit={this.handleSubmit} className="contactform">
           {/* Contact form */}
-          <div className="formGroup">
+    
             <label htmlFor="name" className="label">
               Name
             </label>
@@ -80,8 +80,8 @@ class ContactPage extends Component {
             {this.state.errors && this.state.errors.name && (
               <span className="error">{this.state.errors.name}</span>
             )}
-          </div>
-          <div className="formGroup">
+
+         
             <label htmlFor="email" className="label">
               Email
             </label>
@@ -96,8 +96,8 @@ class ContactPage extends Component {
             {this.state.errors && this.state.errors.email && (
               <span className="error">{this.state.errors.email}</span>
             )}
-          </div>
-          <div className="formGroup">
+
+          
             <label htmlFor="message" className="label">
               Message
             </label>
@@ -111,7 +111,7 @@ class ContactPage extends Component {
             {this.state.errors && this.state.errors.message && (
               <span className="error">{this.state.errors.message}</span>
             )}
-          </div>
+
           <button type="submit" className="button">
             Submit
           </button>

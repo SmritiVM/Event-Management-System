@@ -12,6 +12,7 @@ import RegistrationForm from './components/Login/Register';
 import EventRegistrationForm from './components/Event/eventform';
 import EventList from './components/Event/EventList';
 import BookedEventsList from './components/Event/BookedEventsList';
+import EditProfileForm from './components/UserProfile/userprofileform';
 
 import './App.css';
 
@@ -20,6 +21,7 @@ import './App.css';
 function App() {
   const [isLoggedIn, setLoggedIn] = useState("false");
   const [user, setUser] = useState();
+
 
   useEffect(() => {
     setInterval(() => {
@@ -63,7 +65,14 @@ function App() {
             <BookedEventsList/>
             </ProtectedRoute>}
           />
+          <Route path = "/edit-profile"
+          element ={
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <EditProfileForm/>
+            </ProtectedRoute>}
+            />
           
+
         </Routes>
         <Footer/>
       </HashRouter>

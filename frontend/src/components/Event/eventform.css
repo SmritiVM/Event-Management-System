@@ -53,16 +53,6 @@ div {
 .eventForm input:focus{
   outline: none;
 }
-.eventForm .link{
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 17px;
-  padding-top: 20px;
-  text-align: center;
-}
-.eventForm .link a{
-  text-decoration: none;
-  color: #ff7200;
-}
 select{
   width: 100%;
   padding: 8px;
@@ -109,7 +99,7 @@ textarea {
 }
 
 .eventForm button:hover {
-  background-color: #ff7200;;
+  background-color: #fff;
 }
 .icons a{
   text-decoration: none;

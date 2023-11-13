@@ -1,4 +1,4 @@
-.container {
+/* .container {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
@@ -32,8 +32,8 @@
 }
 
 .button {
-  background-color: #ff0000;
-  color: #000000;
+  background-color: #ff7200;
+  color: black;
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
@@ -41,7 +41,7 @@
 }
 
 .button:hover {
-  background-color: #45a049;
+  background-color: #fff;
 }
 
 .error {
@@ -58,4 +58,83 @@
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 4px;
+} */
+/* ContactPage.css */
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center; /* Center align the content */
 }
+
+.heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%);
+  transform: translate(0%,25px);
+  position: center;
+}
+.form h1{
+  text-align: center;
+  font-family: sans-serif;
+  background-color: #fff;
+  color: #ff7200;
+  font-size: 22px;
+  border-radius: 10px;
+  margin-bottom:  30px;
+  padding: 8px;
+}
+.formGroup {
+  margin-bottom: 15px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+
+.button {
+  background-color: #ff7200;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.feedbackSection {
+  text-align: left; /* Align feedback items to the left */
+}
+
+.feedbackList {
+  list-style: none;
+  padding: 0;
+}
+
+.feedbackItem {
+  margin-bottom: 15px;
+}
+
+.feedbackItem strong {
+  font-weight: bold;
+  margin-right: 5px;
+}
+

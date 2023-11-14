@@ -40,7 +40,7 @@ export default function EventRegistrationForm () {
     Axios.post("http://localhost:4000/eventRoute/create-event", formData)
     .then((res) => {
       if(res.status === 200)
-        alert("Record added successfully");
+        alert("Event created successfully");
       else
         Promise.reject();
     })
@@ -85,7 +85,7 @@ export default function EventRegistrationForm () {
             onChange={handleChange}
             required
           />
-          <div classNmae='error'>{formErrors.endTimeTime}</div>
+          <div classNmae='error'>{formErrors.endTime}</div>
         </div>
         <div>
           <label htmlFor="date">Event Date:</label>

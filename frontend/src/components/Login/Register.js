@@ -1,67 +1,27 @@
 import React, { useState } from 'react';
-import './register.css';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
-    userName: '',
-    fullName: '',
+    firstName: '',
+    lastName: '',
     email: '',
-    phone: '',
-    password: '',
-    repassword: '',
+    college: '',
+    event: '',
   });
-
-  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    // Clear previous errors for the field
-    setErrors({ ...errors, [name]: undefined });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Perform validation
-    const validationErrors = {};
-
-    if (formData.userName.includes(' ')) {
-      validationErrors.userName = 'Username should not contain spaces';
-    }
-
-    if (formData.fullName.length < 3) {
-      validationErrors.fullName = 'Full Name must have at least 3 characters';
-    }
-
-    if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      validationErrors.email = 'Invalid email address';
-    }
-
-    if (!/^\d{10}$/.test(formData.phone)) {
-      validationErrors.phone = 'Phone number should consist of 10 digits';
-    }
-
-    if (formData.password.length < 6) {
-      validationErrors.password = 'Password must be at least 6 characters long';
-    }
-
-    if (formData.password !== formData.repassword) {
-      validationErrors.repassword = 'Passwords do not match';
-    }
-
-    // If there are validation errors, update the state and return
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
-
-    // If no validation errors, you can proceed with form submission logic
+    // You can handle form submission logic here, e.g., send data to a server.
     console.log(formData);
   };
 
   return (
-    <div className="registration-container">
+    <div>
       <h1>User Registration</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -74,7 +34,6 @@ const RegistrationForm = () => {
             onChange={handleChange}
             required
           />
-          {errors.userName && <span className="error">{errors.userName}</span>}
         </div>
         <div>
           <label htmlFor="fullName">Full Name:</label>
@@ -86,7 +45,6 @@ const RegistrationForm = () => {
             onChange={handleChange}
             required
           />
-          {errors.fullName && <span className="error">{errors.fullName}</span>}
         </div>
         <div>
           <label htmlFor="email">Email:</label>
@@ -98,19 +56,6 @@ const RegistrationForm = () => {
             onChange={handleChange}
             required
           />
-          {errors.email && <span className="error">{errors.email}</span>}
-        </div>
-        <div>
-          <label htmlFor="phone">Phone No:</label>
-          <input
-            type="text"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
-          {errors.phone && <span className="error">{errors.phone}</span>}
         </div>
         <div>
           <label htmlFor="password">Password:</label>
@@ -122,7 +67,6 @@ const RegistrationForm = () => {
             onChange={handleChange}
             required
           />
-          {errors.password && <span className="error">{errors.password}</span>}
         </div>
         <div>
           <label htmlFor="repassword">Confirm Password:</label>
@@ -134,9 +78,23 @@ const RegistrationForm = () => {
             onChange={handleChange}
             required
           />
-          {errors.repassword && <span className="error">{errors.repassword}</span>}
         </div>
 
+        {/* <div>
+          <label htmlFor="event">Select Event:</label>
+          <select
+            id="event"
+            name="event"
+            value={formData.event}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select an event</option>
+            <option value="Event A">Event A</option>
+            <option value="Event B">Event B</option>
+            <option value="Event C">Event C</option>
+          </select>
+        </div> */}
         <button type="submit">Register</button>
       </form>
     </div>
@@ -144,3 +102,7 @@ const RegistrationForm = () => {
 };
 
 export default RegistrationForm;
+
+
+
+

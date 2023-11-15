@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import Axios from "axios";
+
 import './register.css';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
-    userName: '',
+    username: '',
     fullName: '',
     email: '',
     phone: '',
@@ -26,8 +28,8 @@ const RegistrationForm = () => {
     // Perform validation
     const validationErrors = {};
 
-    if (formData.userName.includes(' ')) {
-      validationErrors.userName = 'Username should not contain spaces';
+    if (formData.username.includes(' ')) {
+      validationErrors.username = 'Username should not contain spaces';
     }
 
     if (formData.fullName.length < 3) {
@@ -58,6 +60,16 @@ const RegistrationForm = () => {
 
     // If no validation errors, you can proceed with form submission logic
     console.log(formData);
+    Axios.post('http://localhost:4000/eventRoute/create-user', formData)
+    .then((res) => {
+      if(res.status === 200)
+      {
+          alert("User created successfully");
+          window.location.reload();
+      }
+      else
+        Promise.reject();
+    })
   };
 
   return (
@@ -65,16 +77,16 @@ const RegistrationForm = () => {
       <h1>User Registration</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="userName">Username:</label>
+          <label htmlFor="username">Username:</label>
           <input
             type="text"
-            id="userName"
-            name="userName"
-            value={formData.userName}
+            id="username"
+            name="username"
+            value={formData.username}
             onChange={handleChange}
             required
           />
-          {errors.userName && <span className="register-error">{errors.userName}</span>}
+          {errors.userName && <span className="register-error">{errors.username}</span>}
         </div>
         <div>
           <label htmlFor="fullName">Full Name:</label>

@@ -74,7 +74,7 @@ const RegistrationForm = () => {
             onChange={handleChange}
             required
           />
-          {errors.userName && <span className="error">{errors.userName}</span>}
+          {errors.userName && <span className="register-error">{errors.userName}</span>}
         </div>
         <div>
           <label htmlFor="fullName">Full Name:</label>
@@ -86,7 +86,7 @@ const RegistrationForm = () => {
             onChange={handleChange}
             required
           />
-          {errors.fullName && <span className="error">{errors.fullName}</span>}
+          {errors.fullName && <span className="register-error">{errors.fullName}</span>}
         </div>
         <div>
           <label htmlFor="email">Email:</label>
@@ -98,7 +98,7 @@ const RegistrationForm = () => {
             onChange={handleChange}
             required
           />
-          {errors.email && <span className="error">{errors.email}</span>}
+          {errors.email && <span className="register-error">{errors.email}</span>}
         </div>
         <div>
           <label htmlFor="phone">Phone No:</label>
@@ -110,7 +110,7 @@ const RegistrationForm = () => {
             onChange={handleChange}
             required
           />
-          {errors.phone && <span className="error">{errors.phone}</span>}
+          {errors.phone && <span className="register-error">{errors.phone}</span>}
         </div>
         <div>
           <label htmlFor="password">Password:</label>
@@ -122,7 +122,7 @@ const RegistrationForm = () => {
             onChange={handleChange}
             required
           />
-          {errors.password && <span className="error">{errors.password}</span>}
+          {errors.password && <span className="register-error">{errors.password}</span>}
         </div>
         <div>
           <label htmlFor="repassword">Confirm Password:</label>
@@ -134,7 +134,7 @@ const RegistrationForm = () => {
             onChange={handleChange}
             required
           />
-          {errors.repassword && <span className="error">{errors.repassword}</span>}
+          {errors.repassword && <span className="register-error">{errors.repassword}</span>}
         </div>
 
         <button type="submit">Register</button>

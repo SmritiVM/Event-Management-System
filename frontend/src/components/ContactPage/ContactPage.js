@@ -61,12 +61,12 @@ class ContactPage extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="contact-container">
         <h1>Contact Us</h1>
-        <form onSubmit={this.handleSubmit} className="form">
+        <form onSubmit={this.handleSubmit} className="contact-form">
           {/* Contact form */}
           <div className="formGroup">
-            <label htmlFor="name" className="label">
+            <label htmlFor="name" className="contact-label">
               Name
             </label>
             <input
@@ -75,14 +75,14 @@ class ContactPage extends Component {
               name="name"
               value={this.state.name}
               onChange={this.handleInputChange}
-              className="input"
+              className="contact-input"
             />
             {this.state.errors && this.state.errors.name && (
-              <span className="error">{this.state.errors.name}</span>
+              <span className="contact-error">{this.state.errors.name}</span>
             )}
           </div>
           <div className="formGroup">
-            <label htmlFor="email" className="label">
+            <label htmlFor="email" className="contact-label">
               Email
             </label>
             <input
@@ -91,14 +91,14 @@ class ContactPage extends Component {
               name="email"
               value={this.state.email}
               onChange={this.handleInputChange}
-              className="input"
+              className="contact-input"
             />
             {this.state.errors && this.state.errors.email && (
-              <span className="error">{this.state.errors.email}</span>
+              <span className="contact-error">{this.state.errors.email}</span>
             )}
           </div>
           <div className="formGroup">
-            <label htmlFor="message" className="label">
+            <label htmlFor="message" className="contact-label">
               Message
             </label>
             <textarea
@@ -106,13 +106,13 @@ class ContactPage extends Component {
               name="message"
               value={this.state.message}
               onChange={this.handleInputChange}
-              className="input"
+              className="contact-input"
             />
             {this.state.errors && this.state.errors.message && (
-              <span className="error">{this.state.errors.message}</span>
+              <span className="contact-error">{this.state.errors.message}</span>
             )}
           </div>
-          <button type="submit" className="button">
+          <button type="submit" className="contact-button">
             Submit
           </button>
         </form>

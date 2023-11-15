@@ -1,51 +1,91 @@
-.container {
-  max-width: 800px;
+.contact-container {
+  max-width: 600px;
   margin: 0 auto;
   padding: 20px;
-  font-family: 'Arial, sans-serif';
+  color: #fff;
 }
 
-.form {
-  background-color: #fff;
-  padding: 20px;
+.contact-form{
+  max-width: 600px;
+  margin-top: auto;
+  margin-bottom: 50px;
+  padding: 25px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.5)50%,rgba(0,0,0,0.5)50%);
+  transform: translate(0%,25px);
+  position: center;
+}
+.contact-container h1, h2{
+  text-align: center;
+  font-family: sans-serif;
+  background-color: #fff;
+  color: #ff7200;
+  font-size: 22px;
+  border-radius: 10px;
+  margin-bottom:  30px;
+  padding: 8px;
 }
 
 .formGroup {
   margin-bottom: 20px;
 }
 
-.label {
-  display: block;
-  margin-bottom: 8px;
+.contact-label {
+  font-weight: bold;
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  margin-bottom: 10px;
 }
 
-.input {
+.contact-input {
+  width: 90%;
+  padding: 10px;
+  margin: 5px 0;
+  background: transparent;
+  border-bottom: 1px solid #ff7200;
+  border-top: 1px solid #ff7200;
+  border-right: 1px solid #ff7200;
+  border-left: 1px solid #ff7200;
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  font-family: sans-serif;
+}
+
+.contact-input:focus{
+  outline: none;
+}
+
+.contact-button {
+  min-height: 55px;
   width: 100%;
-  padding: 8px;
-  margin-bottom: 16px;
-  box-sizing: border-box;
-  border: 1px solid #000000;
-  border-radius: 4px;
-}
-
-.button {
-  background-color: #ff0000;
-  color: #000000;
-  padding: 10px 15px;
+  background-color: #ff7200;;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  padding: 10px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.button:hover {
-  background-color: #45a049;
+.contact-button:hover {
+  background-color: #ff7200;;
 }
 
-.error {
-  color: #ff0000;
+.contact-error {
+  color:#ff7200;
+  margin-top: 5px;
 }
 
 .feedbackList {

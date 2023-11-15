@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Axios from "axios";
+
 import './ContactPage.css'; 
 
 class ContactPage extends Component {
@@ -39,6 +41,15 @@ class ContactPage extends Component {
         email: this.state.email,
         message: this.state.message,
       };
+
+      Axios.post("http://localhost:4000/eventRoute/post-feedback", newFeedback)
+      .then((res) => {
+        if(res.status === 200)
+          alert("Thank you for your feedback!");
+        else
+          Promise.reject();
+      })
+      .catch((err) => alert(err));
 
       this.setState((prevState) => ({
         feedback: [...prevState.feedback, newFeedback],

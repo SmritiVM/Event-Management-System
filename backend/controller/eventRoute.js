@@ -1,6 +1,7 @@
 const express = require("express");
 const userSchema = require("../model/userSchema");
 const eventSchema = require("../model/eventSchema");
+const feedbackSchema = require("../model/feedbackSchema");
 const eventRoute = express.Router();
 const mongoose = require("mongoose");
 
@@ -109,4 +110,17 @@ eventRoute.delete("/delete-event/:id",(req,res)=>{
             res.json(data);
     })
 })
+
+
+
+// Feedback
+eventRoute.post("/post-feedback", (req,res) => {
+    feedbackSchema.create(req.body, (err,data) => {
+        if(err)
+            return err;
+        else
+            res.json(data);
+    })
+})
+
 module.exports = eventRoute;

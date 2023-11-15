@@ -152,6 +152,7 @@ function EventCard(props){
      
     // Function to delete event
     const deleteEvent = () => {
+        Axios.all([ 
         Axios.delete("http://localhost:4000/eventRoute/delete-event/" + _id)
         .then((res) => {
             if(res.status === 200){
@@ -161,7 +162,33 @@ function EventCard(props){
             else
                 Promise.reject();
         })
-        .catch((err) => alert(err))
+        .catch((err) => alert(err)),
+
+        Axios.get("http://localhost:4000/eventRoute/user-list")
+        .then((userResponse) => {
+            if(userResponse.status === 200){
+                // Finding users who have booked current event
+                const collectedUsers = userResponse.data;
+                for(let i = 0; i < collectedUsers.length; i++){
+                    let userData = collectedUsers[i];
+                    userData.bookedEvents = userData.bookedEvents.filter((event) => event._id !== _id);
+                    
+                    Axios.put("http://localhost:4000/eventRoute/update-user/" + collectedUsers[i]._id, userData)
+                        .then((updateResponse) => {
+                            if(updateResponse.status === 200)
+                                console.log("User details updated")
+                            
+                            else
+                                Promise.reject();
+                        })
+                        .catch((updateError) => alert(updateError))
+                }
+                
+
+            }
+        } )
+    ])
+       
     }
     
     // Setting action button according to booking, viewing and admin privileges 

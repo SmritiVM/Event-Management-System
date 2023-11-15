@@ -89,7 +89,7 @@ export default function Navbar(props){
                     <ul>
                     <li><Link to = "/">Home</Link></li>
                     <li><Link to = "#">About</Link></li>
-                    <li><Link to = "#">CONTACT US</Link></li>
+                    <li><Link to = "/contact">CONTACT US</Link></li>
                 </ul>
                 </div>
             

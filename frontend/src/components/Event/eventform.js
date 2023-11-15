@@ -40,12 +40,17 @@ export default function EventRegistrationForm () {
     Axios.post("http://localhost:4000/eventRoute/create-event", formData)
     .then((res) => {
       if(res.status === 200)
-        alert("Record added successfully");
+      {
+          alert("Event created successfully");
+          window.location.reload();
+      }
       else
         Promise.reject();
     })
     .catch((err) => alert(err));
     // console.log(formData);
+
+    
   };
   return (
     <div className='eventForm'>

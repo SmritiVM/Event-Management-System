@@ -29,6 +29,8 @@ export default function Login(){
                     if(res.data.password === password){
                         localStorage.setItem("loginStatus", true);
                         localStorage.setItem("user", name);
+                        localStorage.setItem("userID", res.data._id);
+                        console.log(localStorage.getItem("userID"));
                     
                     }
                     else

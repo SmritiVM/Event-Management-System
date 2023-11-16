@@ -32,7 +32,7 @@ export default function Navbar(props){
                     <li><Link to = "#">About</Link></li>
                     <li><Link to = "/view-event">View Events</Link></li>
                     <li><Link to = "/create-event">Create Event</Link></li>
-                    <li><Link to = "#">View Users</Link></li>
+                    <li><Link to = "/view-user">View Users</Link></li>
                 </ul>
                 </div>
                 <div class = "dropdown">

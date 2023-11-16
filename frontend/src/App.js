@@ -10,6 +10,9 @@ import ContactPage from './components/ContactPage/ContactPage';
 
 import RegistrationForm from './components/Login/Register';
 import EventRegistrationForm from './components/Event/eventform';
+
+import UserList from './components/UserList/UserList';
+
 import EventList from './components/Event/EventList';
 import BookedEventsList from './components/Event/BookedEventsList';
 
@@ -41,6 +44,12 @@ function App() {
 
           {/* User paths */}
           <Route path = "/register" element = {<RegistrationForm/>}/>
+
+          <Route path = "/view-user"  element = {
+            <ProtectedRouteAdmin currentUser={user}>
+              <UserList/>
+            </ProtectedRouteAdmin>}
+          />
 
           {/* Event Paths */}
           <Route path = "/create-event" 

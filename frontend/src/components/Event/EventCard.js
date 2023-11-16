@@ -195,7 +195,7 @@ function EventCard(props){
 // Function to update event
 const updateEvent = (eventId, updatedEventData) => {
     Axios.all([
-        // Update the event details
+    
         Axios.put("http://localhost:4000/eventRoute/update-event/" + eventId, updatedEventData)
             .then((updateResponce) => {
                 if (updateResponce.status === 200) {
@@ -207,7 +207,7 @@ const updateEvent = (eventId, updatedEventData) => {
             })
             .catch((updateErr) => alert(updateErr)),
 
-        // Fetch the list of users
+        // To get the list of users
         Axios.get("http://localhost:4000/eventRoute/user-list")
             .then((userResponse) => {
                 if (userResponse.status === 200) {
@@ -215,8 +215,6 @@ const updateEvent = (eventId, updatedEventData) => {
                     const collectedUsers = userResponse.data;
                     for (let i = 0; i < collectedUsers.length; i++) {
                         let userData = collectedUsers[i];
-
-                        // Update bookedEvents array for the current event
                         userData.bookedEvents = userData.bookedEvents.map((event) => {
                             if (event._id === eventId) {
                                 return updatedEventData; // Update with the modified event data
@@ -224,7 +222,7 @@ const updateEvent = (eventId, updatedEventData) => {
                             return event;
                         });
 
-                        // Update user details
+                        // Updating the user details
                         Axios.put("http://localhost:4000/eventRoute/update-user/" + collectedUsers[i]._id, userData)
                             .then((userUpdateResponse) => {
                                 if (userUpdateResponse.status === 200) {
@@ -240,7 +238,8 @@ const updateEvent = (eventId, updatedEventData) => {
             .catch((userError) => alert(userError)),
     ]);
 };
-    // Setting action button according to booking, viewing and admin privileges 
+
+// Setting action button according to booking, viewing and admin privileges 
     const [actionButton, setActionButton] = useState();
 
     useEffect(() => {

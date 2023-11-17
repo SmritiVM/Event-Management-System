@@ -12,6 +12,9 @@ const RegistrationForm = (props) => {
     password: `${props.passwordValue}`,
     repassword: '',
   });
+  const [readonly, setReadOnly] = useState(false);
+  const [title, setTitle] = useState("User Registration");
+  const [buttonTitle, setButtonTitle] = useState("Register");
 
   useEffect(() => {
     setFormData(
@@ -24,6 +27,12 @@ const RegistrationForm = (props) => {
         repassword: '',
       }
     )
+    if(props.action === "update")
+    {
+      setReadOnly(true);
+      setTitle("Edit Profile");
+      setButtonTitle("Update");
+    }  
   }, [props.usernameValue, props.fullNameValue, props.emailValue, props.phoneValue, props.passwordValue])
   const [errors, setErrors] = useState({});
 
@@ -93,20 +102,49 @@ const RegistrationForm = (props) => {
       }
       userData.bookedEvents = props.bookedEventsValue;
       console.log("From form page:",userData);
-      Axios.put("http://localhost:4000/eventRoute/update-user/" + props.id, userData)
-      .then(response => {
-        alert('User updated successfully');
+      Axios.all([
+        // Updating user records
+        Axios.put("http://localhost:4000/eventRoute/update-user/" + props.id, userData)
+        .then(response => {
+          alert('User updated successfully');
 
-      })
-      .catch(error => {
-        console.error('Error updating user:', error);
-      });
+        })
+        .catch(error => {
+          console.error('Error updating user:', error);
+        }),
+
+        Axios.get("http://localhost:4000/eventRoute/event-list")
+        .then((eventResponse) => {
+            if(eventResponse.status === 200){
+                //Finding events where current user is registered
+                const collectedEvents = eventResponse.data;
+                for(let i = 0; i < collectedEvents.length; i++){
+                    let eventData = collectedEvents[i];
+                    eventData.registeredUsers = eventData.registeredUsers.filter((user) => user.username !== userData.username);
+                    eventData.registeredUsers = [...eventData.registeredUsers,
+                      {username: userData.username, fullName: userData.fullName,
+                        email: userData.email, phone: userData.phone} ]
+                    Axios.put("http://localhost:4000/eventRoute/update-event/" + collectedEvents[i]._id, eventData)
+                    .then((updateResponse) => {
+                        if(updateResponse.status === 200)
+                            console.log("Event details updated")
+                        
+                        else
+                            Promise.reject();
+                    })
+                    .catch((updateError) => alert(updateError))
+                }
+            }
+        }) 
+
+      ])
+      
     }
   };
 
   return (
     <div className="registration-container">
-      <h1>User Registration</h1>
+      <h1>{title}</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="username">Username:</label>
@@ -117,6 +155,7 @@ const RegistrationForm = (props) => {
             value={formData.username}
             onChange={handleChange}
             required
+            readOnly = {readonly}
           />
           {errors.userName && <span className="register-error">{errors.username}</span>}
         </div>
@@ -181,7 +220,7 @@ const RegistrationForm = (props) => {
           {errors.repassword && <span className="register-error">{errors.repassword}</span>}
         </div>
 
-        <button type="submit">Register</button>
+        <button type="submit">{buttonTitle}</button>
       </form>
     </div>
   );

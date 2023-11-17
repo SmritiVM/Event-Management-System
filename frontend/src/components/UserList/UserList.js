@@ -2,6 +2,8 @@ import Axios from "axios";
 import { useEffect, useState } from "react";
 import UserListRow from "./UserListRow";
 
+import "./UserList.css";
+
 function UserList()
 {
     const [arr,setArr] = useState([]);
@@ -22,7 +24,9 @@ function UserList()
         })
     }
     return (
-        <table style={{maxWidth:"60%", margin: "50px auto"}} class="table table-bordered table-striped table-success">
+        <table className = "userDisplayTable"
+        style={{maxWidth:"60%", margin: "50px auto"}} 
+        border = "1" bordercolor = "white" cellspacing = "0" cellpadding = "5">
             <thead>
                 <tr>
                     <th class="text-center">Username</th>

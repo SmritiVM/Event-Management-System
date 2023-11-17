@@ -51,7 +51,7 @@ function UserListRow(props) {
             <td>{phone}</td>
 
             <td class="d-flex justify-content-center">
-                <button onClick={handleClick} class="btn btn-danger">
+                <button onClick={handleClick} class="btn delete-button">
                     Delete
                 </button>
             </td>

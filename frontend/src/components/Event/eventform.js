@@ -14,6 +14,9 @@ const EventRegistrationForm = (props) => {
     slots: `${props.slotsValue}`,
   });
 
+  const [title, setTitle] = useState("Event Creation Form");
+  const [buttonTitle, setButtonTitle] = useState("Create");
+
   useEffect(() => {
     setFormData({
     name: `${props.nameValue}`,
@@ -25,6 +28,10 @@ const EventRegistrationForm = (props) => {
     club: `${props.clubValue}`,
     slots: `${props.slotsValue}`,
     })
+    if(props.action === "update"){
+      setTitle("Event Updation Form");
+      setButtonTitle("Update");
+    }
   }, [props.nameValue, props.startTimeValue, props.endTimeValue, 
     props.dateValue, props.descriptionValue, props.clubValue, props.slotsValue])
 
@@ -130,7 +137,7 @@ const EventRegistrationForm = (props) => {
   };
   return (
     <div className='eventForm'>
-      <h1>Event Registration Form</h1>
+      <h1>{title}</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Event Name:</label>
@@ -228,7 +235,7 @@ const EventRegistrationForm = (props) => {
           />
           <div classNmae='error'>{formErrors.slots}</div>
         </div>
-        <button type="submit">Register</button>
+        <button type="submit">{buttonTitle}</button>
       </form>
     </div>
   );

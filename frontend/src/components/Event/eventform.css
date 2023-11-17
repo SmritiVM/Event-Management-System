@@ -75,7 +75,7 @@ select{
   color:#ff7200;
   margin-top: 5px;
 }
-textarea {
+.eventForm textarea {
   width: 95%;
   padding: 10px;
   margin: 5px 0;
@@ -83,6 +83,8 @@ textarea {
   box-sizing: border-box;
   border: 1px solid ;
   border-radius: 4px;
+  color: #fff;
+  font-family: sans-serif;
   border-bottom: 1px solid #ff7200;
   border-top: 1px solid #ff7200;
   border-right: 1px solid #ff7200;

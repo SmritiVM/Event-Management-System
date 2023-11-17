@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Axios from "axios";
 
 import "./Events.css";
 
 function EventCard(props){
+    const navigate = useNavigate();
     // Extracting event details from database
     const {_id, name, date, place, club, description, slots, startTime, endTime, registeredUsers} = props.obj;
     let year = date.slice(0,4);
@@ -193,51 +195,10 @@ function EventCard(props){
 
     
 // Function to update event
-const updateEvent = (eventId, updatedEventData) => {
-    Axios.all([
-    
-        Axios.put("http://localhost:4000/eventRoute/update-event/" + eventId, updatedEventData)
-            .then((updateResponce) => {
-                if (updateResponce.status === 200) {
-                    alert("Event updated successfully");
-                    window.location.reload(); 
-                } else {
-                    Promise.reject();
-                }
-            })
-            .catch((updateErr) => alert(updateErr)),
-
-        // To get the list of users
-        Axios.get("http://localhost:4000/eventRoute/user-list")
-            .then((userResponse) => {
-                if (userResponse.status === 200) {
-                    // Finding users who have booked the current event
-                    const collectedUsers = userResponse.data;
-                    for (let i = 0; i < collectedUsers.length; i++) {
-                        let userData = collectedUsers[i];
-                        userData.bookedEvents = userData.bookedEvents.map((event) => {
-                            if (event._id === eventId) {
-                                return updatedEventData; // Update with the modified event data
-                            }
-                            return event;
-                        });
-
-                        // Updating the user details
-                        Axios.put("http://localhost:4000/eventRoute/update-user/" + collectedUsers[i]._id, userData)
-                            .then((userUpdateResponse) => {
-                                if (userUpdateResponse.status === 200) {
-                                    console.log("User details updated");
-                                } else {
-                                    Promise.reject();
-                                }
-                            })
-                            .catch((userUpdateError) => alert(userUpdateError));
-                    }
-                }
-            })
-            .catch((userError) => alert(userError)),
-    ]);
-};
+    const updateEvent = () => {
+        localStorage.setItem("eventID", _id);
+        navigate("/update-event");
+    }
 
 // Setting action button according to booking, viewing and admin privileges 
     const [actionButton, setActionButton] = useState();
@@ -262,7 +223,7 @@ const updateEvent = (eventId, updatedEventData) => {
             <button className='cardButton' style={{"backgroundColor": "green"}} onClick={deleteEvent}>
                 Delete
             </button>
-            <button className='cardButton' style={{"backgroundColor": "red"}}>
+            <button className='cardButton' style={{"backgroundColor": "red"}} onClick={updateEvent}>
                 Update
             </button>
             </div>);

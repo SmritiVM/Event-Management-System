@@ -74,6 +74,16 @@ eventRoute.get("/event-list", (req,res) => {
     })
 })
 
+eventRoute.route("/check-event/:id")
+.get((req, res) => {
+    eventSchema.findById(mongoose.Types.ObjectId(req.params.id), (err,data) => {
+        if(err)
+            return err;
+        else
+            res.json(data);
+    })
+})
+
 eventRoute.post("/create-event", (req,res) => {
     eventSchema.create(req.body, (err,data) => {
         if(err)

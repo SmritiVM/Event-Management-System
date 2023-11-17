@@ -9,12 +9,12 @@ import Home from './components/Home/Home';
 import ContactPage from './components/ContactPage/ContactPage';
 
 import Register from './components/Login/Register';
-
 import UserUpdateForm from './components/UserProfile/EditProfile';
-
 import UserList from './components/UserList/UserList';
-import EventRegistrationForm from './components/Event/eventform';
+
+import CreateEvent from './components/Event/CreateEvent';
 import EventList from './components/Event/EventList';
+import UpdateEvent from './components/Event/UpdateEvent';
 import BookedEventsList from './components/Event/BookedEventsList';
 
 import './App.css';
@@ -57,7 +57,7 @@ function App() {
           <Route path = "/create-event" 
             element = {
             <ProtectedRouteAdmin currentUser={user}>
-              <EventRegistrationForm/>
+              <CreateEvent/>
             </ProtectedRouteAdmin>}
           />
 
@@ -68,6 +68,14 @@ function App() {
             </ProtectedRoute>}
           />
 
+          <Route path = "/update-event"
+          element = {
+            <ProtectedRouteAdmin currentUser={user}>
+              <UpdateEvent/>
+            </ProtectedRouteAdmin>
+          }
+          />
+          
           <Route path = "/booked-events"
           element = {
             <ProtectedRoute isLoggedIn={isLoggedIn}>

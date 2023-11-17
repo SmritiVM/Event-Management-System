@@ -1,18 +1,33 @@
 import Axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './eventform.css';
 
-export default function EventRegistrationForm () {
+const EventRegistrationForm = (props) => {
   const [formData, setFormData] = useState({
-    name: '',
-    startTime: '',
-    endTime: '',
-    date: '',
-    place: '',
-    description: '',
-    club: '',
-    slots: '',
+    name: `${props.nameValue}`,
+    startTime: `${props.startTimeValue}`,
+    endTime: `${props.endTimeValue}`,
+    date: `${props.dateValue}`,
+    place: `${props.placeValue}`,
+    description: `${props.descriptionValue}`,
+    club: `${props.clubValue}`,
+    slots: `${props.slotsValue}`,
   });
+
+  useEffect(() => {
+    setFormData({
+    name: `${props.nameValue}`,
+    startTime: `${props.startTimeValue}`,
+    endTime: `${props.endTimeValue}`,
+    date: `${props.dateValue}`,
+    place: `${props.placeValue}`,
+    description: `${props.descriptionValue}`,
+    club: `${props.clubValue}`,
+    slots: `${props.slotsValue}`,
+    })
+  }, [props.nameValue, props.startTimeValue, props.endTimeValue, 
+    props.dateValue, props.descriptionValue, props.clubValue, props.slotsValue])
+
   const [formErrors, setFormErrors] = useState({
     name:'',
     startTime: '',
@@ -37,18 +52,79 @@ export default function EventRegistrationForm () {
       return;
     }
 
-    Axios.post("http://localhost:4000/eventRoute/create-event", formData)
-    .then((res) => {
-      if(res.status === 200)
-      {
-          alert("Event created successfully");
-          window.location.reload();
-      }
-      else
-        Promise.reject();
-    })
-    .catch((err) => alert(err));
-    // console.log(formData);
+    if (props.action === "create"){
+      Axios.post("http://localhost:4000/eventRoute/create-event", formData)
+      .then((res) => {
+        if(res.status === 200)
+        {
+            alert("Event created successfully");
+            window.location.reload();
+        }
+        else
+          Promise.reject();
+      })
+      .catch((err) => alert(err));
+      // console.log(formData);
+    }
+
+    else if (props.action === "update"){
+        let eventData = {
+          name : `${formData.name}`,
+          startTime : `${formData.startTime}`,
+          endTime: `${formData.endTime}`,
+          date : `${formData.date}`,
+          place : `${formData.place}`,
+          description : `${formData.description}`,
+          club : `${formData.club}`,
+          slots : `${formData.slots}`,
+        }
+        eventData.registeredUsers = eventData.registeredUsers;
+        console.log("From updation page:",eventData);
+        Axios.all([
+            Axios.put("http://localhost:4000/eventRoute/update-event/" + props.id, eventData)
+                .then((updateResponce) => {
+                    if (updateResponce.status === 200) {
+                        alert("Event updated successfully");
+   
+                    } else {
+                        Promise.reject();
+                    }
+                })
+                .catch((updateErr) => alert(updateErr)),
+    
+            // To get the list of users
+            Axios.get("http://localhost:4000/eventRoute/user-list")
+                .then((userResponse) => {
+                    if (userResponse.status === 200) {
+                        // Finding users who have booked the current event
+                        const collectedUsers = userResponse.data;
+                        for (let i = 0; i < collectedUsers.length; i++) {
+                            let userData = collectedUsers[i];
+                            userData.bookedEvents = userData.bookedEvents.map((event) => {
+                                if (event._id === props.id) {
+                                    return {_id: props.id, name: eventData.name, date: eventData.date, 
+                                      place: eventData.place, club: eventData.club, description: eventData.description, 
+                                      startTime: eventData.startTime, endTime: eventData.endTime}; // Update with the modified event data
+                                }
+                                return event;
+                            });
+    
+                            // Updating the user details
+                            Axios.put("http://localhost:4000/eventRoute/update-user/" + collectedUsers[i]._id, userData)
+                                .then((userUpdateResponse) => {
+                                    if (userUpdateResponse.status === 200) {
+                                        console.log("User details updated");
+                                    } else {
+                                        Promise.reject();
+                                    }
+                                })
+                                .catch((userUpdateError) => alert(userUpdateError));
+                        }
+                    }
+                })
+                .catch((userError) => alert(userError)),
+        ]);
+    }
 
     
   };
@@ -157,5 +233,5 @@ export default function EventRegistrationForm () {
     </div>
   );
 };
-
+export default EventRegistrationForm;
 //

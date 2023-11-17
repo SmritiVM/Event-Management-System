@@ -45,7 +45,14 @@ function App() {
 
           {/* User paths */}
           <Route path = "/register" element = {<Register/>}/>
-          <Route path = "/edit-profile" element = {<UserUpdateForm/>}/>
+          <Route path = "/edit-profile" 
+          element = {
+          <ProtectedRoute isLoggedIn={isLoggedIn}>
+            <UserUpdateForm/>
+          </ProtectedRoute>
+          }
+          
+          />
           <Route path = "/view-user"  element = {
             <ProtectedRouteAdmin currentUser={user}>
               <UserList/>

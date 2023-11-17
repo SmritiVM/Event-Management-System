@@ -69,7 +69,7 @@ export default function Navbar(props){
                         {user}
                     </button>
                     <div class = "dropdown-content">
-                        <Link to = "#">Edit Profile</Link>
+                        <Link to = "/edit-profile">Edit Profile</Link>
                         <Link to = "/booked-events">Booked Events</Link>
                         <Link to = "/" onClick={logout}>Logout</Link>
                     </div>

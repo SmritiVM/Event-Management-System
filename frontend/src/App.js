@@ -8,11 +8,12 @@ import Footer from "./components/Footer/Footer";
 import Home from './components/Home/Home';
 import ContactPage from './components/ContactPage/ContactPage';
 
-import RegistrationForm from './components/Login/Register';
-import EventRegistrationForm from './components/Event/eventform';
+import Register from './components/Login/Register';
+
+import UserUpdateForm from './components/UserProfile/EditProfile';
 
 import UserList from './components/UserList/UserList';
-
+import EventRegistrationForm from './components/Event/eventform';
 import EventList from './components/Event/EventList';
 import BookedEventsList from './components/Event/BookedEventsList';
 
@@ -43,13 +44,14 @@ function App() {
           <Route path = "/contact" element = {<ContactPage/>}/>
 
           {/* User paths */}
-          <Route path = "/register" element = {<RegistrationForm/>}/>
-
+          <Route path = "/register" element = {<Register/>}/>
+          <Route path = "/edit-profile" element = {<UserUpdateForm/>}/>
           <Route path = "/view-user"  element = {
             <ProtectedRouteAdmin currentUser={user}>
               <UserList/>
             </ProtectedRouteAdmin>}
           />
+
 
           {/* Event Paths */}
           <Route path = "/create-event" 

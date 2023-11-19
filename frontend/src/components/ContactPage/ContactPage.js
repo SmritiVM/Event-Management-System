@@ -42,7 +42,7 @@ class ContactPage extends Component {
         message: this.state.message,
       };
 
-      Axios.post("http://localhost:4000/eventRoute/post-feedback", newFeedback)
+      Axios.post("https://eventhub-t514.onrender.com/eventRoute/post-feedback", newFeedback)
       .then((res) => {
         if(res.status === 200)
           alert("Thank you for your feedback!");

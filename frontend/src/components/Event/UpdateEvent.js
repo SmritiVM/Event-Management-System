@@ -18,7 +18,7 @@ function UpdateEvent() {
 
   useEffect(() => {
     const eventID = localStorage.getItem("eventID");
-    Axios.get("http://localhost:4000/eventRoute/check-event/" + eventID)
+    Axios.get("https://eventhub-t514.onrender.com/eventRoute/check-event/" + eventID)
       .then(response => {
         {
             // console.log(response.data);

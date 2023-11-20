@@ -6,7 +6,8 @@
     margin: 10px;
     padding: 20px;
     color: white;
-    max-width: 75%;
+    max-width: 25%;
+    min-width: 25%;
 }
 
 
@@ -18,16 +19,19 @@
     margin: 2px;
     padding: 10px;
     font-size: 1.15vw;
-    border: none;
-    border-radius: 8px;
+    border: 2px solid #dadada;
+    border-radius: 7px;
     font-weight: bold; 
-    cursor: pointer;
+    cursor: pointer;  
 
 }
 
 .cardButton:hover{
-    opacity: 0.7;
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
 }
+
 
 .cardContainer {
     display: flex;
@@ -40,4 +44,10 @@
 
 .userTable {
     margin:50px auto;    
+    font-size: small;    
+}
+
+.userTable td{
+    max-width: 115px;
+    word-wrap: break-word;
 }

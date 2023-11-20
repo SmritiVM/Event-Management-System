@@ -117,18 +117,23 @@ function EventCard(props){
                 </tbody>
             </table>
         )
-        setActionButton(   
-            <div>
-            <button className='cardButton' style={{"backgroundColor": "blue"}} onClick={closeRegisteredUsers}>
-                Close Registered Users
-            </button>
-            <button className='cardButton' style={{"backgroundColor": "green"}} onClick={deleteEvent}>
-                Delete
-            </button>
-            <button className='cardButton' style={{"backgroundColor": "red"}}>
+        setUpdateButton(
+            <button className='cardButton' style={{"backgroundColor": "green"}} onClick={updateEvent}>
                 Update
             </button>
-            </div>);
+            )
+            setActionButton( 
+            <div>
+            <button className='cardButton' style={{"backgroundColor": "#ff7200"}} onClick={closeRegisteredUsers}>
+                Close Users
+            </button>
+            <button className='cardButton' style={{"backgroundColor": "red"}} onClick={deleteEvent}>
+                Delete
+            </button>
+            
+            </div>
+            
+            );
     }
     const closeRegisteredUsers = () => {
         setDescription(
@@ -139,17 +144,23 @@ function EventCard(props){
             {props.slotsLeft}
             </Card.Text>
         )
-        setActionButton(   
-            <div><button className='cardButton' style={{"backgroundColor": "blue"}} onClick={viewRegisteredUsers}>
-                View Registered Users
-            </button>
-            <button className='cardButton' style={{"backgroundColor": "green"}} onClick={deleteEvent}>
-                Delete
-            </button>
-            <button className='cardButton' style={{"backgroundColor": "red"}} onClick={updateEvent}>
+        setUpdateButton(
+            <button className='cardButton' style={{"backgroundColor": "green"}} onClick={updateEvent}>
                 Update
             </button>
-            </div>);
+            )
+            setActionButton( 
+            <div>
+            <button className='cardButton' style={{"backgroundColor": "#ff7200"}} onClick={viewRegisteredUsers}>
+                Registered Users
+            </button>
+            <button className='cardButton' style={{"backgroundColor": "red"}} onClick={deleteEvent}>
+                Delete
+            </button>
+            
+            </div>
+            
+            )
     }
      
     // Function to delete event
@@ -216,17 +227,23 @@ function EventCard(props){
         }
 
         if (user === "admin"){
-            setActionButton(   
-            <div><button className='cardButton' style={{"backgroundColor": "blue"}} onClick={viewRegisteredUsers}>
-                View Registered Users
-            </button>
-            <button className='cardButton' style={{"backgroundColor": "green"}} onClick={deleteEvent}>
-                Delete
-            </button>
-            <button className='cardButton' style={{"backgroundColor": "red"}} onClick={updateEvent}>
+            setUpdateButton(
+            <button className='cardButton' style={{"backgroundColor": "green"}} onClick={updateEvent}>
                 Update
             </button>
-            </div>);
+            )
+            setActionButton( 
+            <div>
+            <button className='cardButton' style={{"backgroundColor": "#ff7200"}} onClick={viewRegisteredUsers}>
+                Registered Users
+            </button>
+            <button className='cardButton' style={{"backgroundColor": "red"}} onClick={deleteEvent}>
+                Delete
+            </button>
+            
+            </div>
+            
+            );
         }
     }, [])
 
@@ -270,6 +287,7 @@ function EventCard(props){
         <button className='cardButton' style={{"backgroundColor":"wheat"}} onClick={viewDescription}>View Description</button>
     )
     
+    const [updateButton, setUpdateButton] = useState();
     
     return (
         <Card className='eventCard'>
@@ -278,6 +296,7 @@ function EventCard(props){
             <Card.Subtitle style={{fontSize:"1.3vw", fontWeight:"bold", "fontStyle":"italic"}}>{club}</Card.Subtitle>
             {desc}
             {descButton}
+            {updateButton}
             {actionButton}
         </Card.Body>
         

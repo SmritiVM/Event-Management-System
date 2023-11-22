@@ -76,6 +76,20 @@
     margin-top: 9%;
     letter-spacing: 2px;
     margin-bottom: 400px;
+    color: #ff7200;
+}
+
+.content p{
+    font-family: 'Times New Roman';
+    font-size: 20px;
+    padding-left: 0px;
+    margin-top: 3%;
+    letter-spacing: 2px;
+    margin-bottom: 400px;
+    padding-bottom: 25px;
+    margin-right: 35%;
+    line-height: 30px;
+    color: #fff;
 }
 
 /* .content .cn{

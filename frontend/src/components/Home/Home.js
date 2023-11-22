@@ -17,7 +17,11 @@ export default function Home(props){
     if (!isLoggedIn || isLoggedIn === "false"){
         return(
             <div class="content">
-                <h1>Event management System</h1>
+                <h1>Eventify
+                    <p >Explore the magic of our application "EVENTIFY".A go-to solution for managing amazing events effortlessly. From easy sign-ups to registering and managing event schedules, our user-friendly platform has everything you need for a flawless experience. With powerful features,trust our system to handle the details, and let's bring your event vision to life!!!
+</p>
+                </h1>
+                
                 <Login/>
             </div>
         )

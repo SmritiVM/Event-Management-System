@@ -235,7 +235,7 @@ const EventRegistrationForm = (props) => {
           />
           <div classNmae='error'>{formErrors.slots}</div>
         </div>
-        <button type="submit">{buttonTitle}</button>
+        <button className='button' type="submit">{buttonTitle}</button>
       </form>
     </div>
   );

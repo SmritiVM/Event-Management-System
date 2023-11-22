@@ -127,3 +127,7 @@ select{
 .icons ion-icon:hover{
   color: #ff7200;
 }
+.button:hover{
+  background: #fff;
+  color: #f4f2f0;
+}

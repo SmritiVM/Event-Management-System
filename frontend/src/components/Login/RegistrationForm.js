@@ -220,7 +220,7 @@ const RegistrationForm = (props) => {
           {errors.repassword && <span className="register-error">{errors.repassword}</span>}
         </div>
 
-        <button type="submit">{buttonTitle}</button>
+        <button className='button' type="submit">{buttonTitle}</button>
       </form>
     </div>
   );

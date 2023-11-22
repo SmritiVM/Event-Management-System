@@ -31,7 +31,7 @@ export default function Home(props){
     else{
         return(
             <div class = "content">
-                <h1>Event management system</h1>
+                <h1>Eventify </h1>
             </div>
             
         )

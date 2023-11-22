@@ -29,7 +29,7 @@ export default function Navbar(props){
                 <div class="menu">
                     <ul>
                     <li><Link to = "/">Home</Link></li>
-                    <li><Link to = "#">About</Link></li>
+                    {/* <li><Link to = "#">About</Link></li> */}
                     <li><Link to = "/view-event">View Events</Link></li>
                     <li><Link to = "/create-event">Create Event</Link></li>
                     <li><Link to = "/view-user">View Users</Link></li>
@@ -59,7 +59,7 @@ export default function Navbar(props){
                 <div class="menu">
                     <ul>
                     <li><Link to = "/">Home</Link></li>
-                    <li><Link to = "#">About</Link></li>
+                    {/* <li><Link to = "#">About</Link></li> */}
                     <li><Link to = "/view-event">Events</Link></li>
                 </ul>
                 </div>
@@ -88,7 +88,7 @@ export default function Navbar(props){
                 <div class="menu">
                     <ul>
                     <li><Link to = "/">Home</Link></li>
-                    <li><Link to = "#">About</Link></li>
+                    {/* <li><Link to = "#">About</Link></li> */}
                     <li><Link to = "/contact">CONTACT US</Link></li>
                 </ul>
                 </div>

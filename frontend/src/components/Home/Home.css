@@ -79,7 +79,7 @@
     color: #ff7200;
 }
 
-.content p{
+.about{
     font-family: 'Times New Roman';
     font-size: 20px;
     padding-left: 0px;
@@ -90,30 +90,6 @@
     margin-right: 35%;
     line-height: 30px;
     color: #fff;
-}
-
-/* .content .cn{
-    width: 160px;
-    height: 40px;
-    background: #ff7200;
-    border: none;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    font-size: 18px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: .4s ease;
-    
-} */
-
-.content .cn a{
-    text-decoration: none;
-    color: #000;
-    transition: .3s ease;
-}
-
-.cn:hover{
-    background-color: #fff;
 }
 
 .content span{

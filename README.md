@@ -1,4 +1,6 @@
-firdous
+# Event Management System
+
+The objective of this project is to develop an Event Management System web application that specifically caters towards colleges and club events. The project aims to test our skills in Web Development and become proficient with the MERN techstack.
 
 # Getting Started with Create React App
 

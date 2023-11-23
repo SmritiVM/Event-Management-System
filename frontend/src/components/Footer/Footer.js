@@ -16,7 +16,7 @@ export default function Footer(){
                 </Col>
             </Row>
             <Row>
-                <Link to = "/about"><h4>About</h4></Link>
+                <Link to = "/"><h4>About</h4></Link>
             </Row>
             <Row>
                 <Link to = "/contact"><h4>Contact Us</h4></Link>

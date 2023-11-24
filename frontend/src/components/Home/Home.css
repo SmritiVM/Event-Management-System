@@ -73,19 +73,22 @@
     font-family: 'Roboto Slab';
     font-size: 50px;
     padding-left: 20px;
-    margin-top: 9%;
+    margin-top: 8%;
     letter-spacing: 2px;
-    margin-bottom: 400px;
     color: #ff7200;
+}
+
+.tagline{
+    font-size: 22px;
+    padding-left: 20px;
+    color: rgb(243, 243, 114);
 }
 
 .about{
     font-family: 'Nunito';
     font-size: 20px;
-    padding-left: 0px;
-    margin-top: 3%;
+    padding-left: 20px;
     letter-spacing: 2px;
-    margin-bottom: 400px;
     padding-bottom: 25px;
     margin-right: 35%;
     line-height: 30px;

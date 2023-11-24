@@ -17,12 +17,17 @@ export default function Home(props){
     if (!isLoggedIn || isLoggedIn === "false"){
         return(
             <div class="content">
-                <h1>Eventify
-                    <p className="about">Explore the magic of our application 'EVENTIFY'.
+                <div>
+                <h1>Eventify</h1>
+                    <p className="tagline">
+                        <em> ‘ Simplify ’ your Events </em>
+                    </p>
+                    <p className="about">
+                    Explore the magic of our application 'EVENTIFY'.
                     A go-to solution for managing amazing events effortlessly. From easy sign-ups to registering and managing event schedules, our user-friendly platform has everything you need for a flawless experience. 
                     With powerful features, trust our system to handle the details, and let's bring your event vision to life!!!
-</p>
-                </h1>
+                    </p>
+                </div>
                 
                 <Login/>
             </div>
@@ -33,7 +38,17 @@ export default function Home(props){
     else{
         return(
             <div class = "content">
-                <h1>Eventify </h1>
+                <div>
+                <h1>Eventify</h1>
+                    <p className="tagline">
+                        <em> ‘ Simplify ’ your Events </em>
+                    </p>
+                    <p className="about">
+                    Explore the magic of our application 'EVENTIFY'.
+                    A go-to solution for managing amazing events effortlessly. From easy sign-ups to registering and managing event schedules, our user-friendly platform has everything you need for a flawless experience. 
+                    With powerful features, trust our system to handle the details, and let's bring your event vision to life!!!
+                    </p>
+                </div>
             </div>
             
         )

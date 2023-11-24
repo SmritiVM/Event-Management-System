@@ -6,25 +6,21 @@
     margin: auto;
 }
 
-.icon{
-    width: 200px;
+.navbar-header{
+    width: 100%;
+}
+
+.logo{
+    scale: 0.7;
     float: left;
     height: 70px;
-
-}
-.logo{
-    color: #ff7200;
-    font-size: 35px;
-    font-family: Arial;
-    padding-left: 20px;
-    float: left;
-    padding-top: 10px;
-    margin-top: 20px;
+    filter: saturate(180%);
+    border-radius: 50px;
 }
 .menu{
-    width: 400px;
     float: left;
     height: 70px;
+    width: fit-content;
 }
 
 ul{
@@ -37,48 +33,56 @@ ul{
 ul li{
     list-style: none;
     margin-left: 62px;
-    margin-top: 27px;
-    font-size: 14px;
+    margin-top: 15px;
+    font-size: 16px;
+    
+    
 }
 
 ul li a{
     text-decoration: none;
     color: #fff;
-    font-family: Arial;
+    font-family: 'Nunito';
     font-weight: bold;
     transition: 0.4s ease-in-out;
+    
 }
 
 ul li a:hover{
     color: #ff7200;
 }
 
-.usericon {
-    margin-left: 500px;
+.usericon{
     margin-top: 25px;
     scale: 2;
     padding-right: 10px;
 
 }
 
+.admin{
+    margin-left: 400px;
+}
+
+.user{
+    margin-left: 750px;
+}
+
 .dropdown {
-    float: left;
     overflow: hidden;      
 }
 
 .dropdown .dropbtn {
-    font-size: 14px;
+    font-size: 16px;
     border: none;
     outline: none;
     color: white;
     padding-bottom: 10px;
     background-color: inherit;
-    font-family: Arial; 
+    font-family: 'Nunito'; 
     font-weight: bold;
   }
 
 .dropdown-content {
-    margin-left: 500px;
     display: none;
     position: absolute;
     background-color: #292626;

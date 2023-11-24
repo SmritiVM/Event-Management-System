@@ -58,6 +58,7 @@ export default function Navbar(props){
                     <ul>
                     <li><Link to = "/">Home</Link></li>
                     <li><Link to = "/view-event">Events</Link></li>
+                    <li><Link to = "/contact">CONTACT US</Link></li>
                 </ul>
                 </div>
                 <div class = "dropdown">

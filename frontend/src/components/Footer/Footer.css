@@ -1,7 +1,7 @@
 .footer{
     display: flex;
     flex-direction: row;
-    margin-top: 5%;
+    margin-top: 15%;
     position: relative;
     background-color: rgb(10,4,22);
     bottom: 0 !important;
